@@ -2,6 +2,7 @@ import { PainelTecnicoHero } from "@/componentes/home/PainelTecnicoHero";
 import { SecaoSobre } from "@/componentes/home/SecaoSobre";
 import { VisaoArquitetura } from "@/componentes/arquitetura/VisaoArquitetura";
 import { LinhaDoTempoExperiencia } from "@/componentes/experiencia/LinhaDoTempoExperiencia";
+import { SecaoProjetos } from "@/componentes/projetos/SecaoProjetos";
 import { Botao } from "@/componentes/ui/Botao";
 import { Container } from "@/componentes/ui/Container";
 import { Secao } from "@/componentes/ui/Secao";
@@ -26,14 +27,6 @@ const indicadoresProfissionais = [
 ];
 
 const secoesEmConstrucao = [
-  {
-    id: "projetos",
-    titulo: "Projetos em construção",
-    rotulo: "Evidências técnicas",
-    detalheVisual: "border-primary/24 bg-surface-elevated/70",
-    descricao:
-      "Esta plataforma está sendo desenvolvida publicamente para demonstrar arquitetura, qualidade de código, testes, documentação e entrega contínua.",
-  },
   {
     id: "contato",
     titulo: "Contato",
@@ -259,6 +252,8 @@ export default function PaginaInicial() {
           <VisaoArquitetura />
         </Container>
       </Secao>
+
+      <SecaoProjetos />
 
       {secoesEmConstrucao.map((secao) => (
         <Secao
