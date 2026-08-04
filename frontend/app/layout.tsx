@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Cabecalho } from "@/componentes/layout/Cabecalho";
+import { Rodape } from "@/componentes/layout/Rodape";
 import "./globals.css";
 
 const fontePrincipal = Geist({
@@ -45,7 +47,11 @@ export default function LayoutRaiz({
       lang="pt-BR"
       className={`${fontePrincipal.variable} ${fonteCodigo.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col bg-background text-foreground">
+        <Cabecalho />
+        {children}
+        <Rodape />
+      </body>
     </html>
   );
 }
