@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cor-fundo: #09090b;
+  --cor-fundo-secundario: #18181b;
+  --cor-superficie: #27272a;
+  --cor-texto-principal: #fafafa;
+  --cor-texto-secundario: #a1a1aa;
+  --cor-borda: #3f3f46;
+  --cor-destaque: #34d399;
+  --cor-destaque-hover: #6ee7b7;
+  --cor-destaque-texto: #052e24;
+
+  --raio-pequeno: 0.5rem;
+  --raio-medio: 0.75rem;
+  --raio-grande: 1rem;
+
+  --sombra-card: 0 20px 50px rgb(0 0 0 / 20%);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--cor-fundo);
+  --color-background-secondary: var(--cor-fundo-secundario);
+  --color-surface: var(--cor-superficie);
+
+  --color-foreground: var(--cor-texto-principal);
+  --color-muted: var(--cor-texto-secundario);
+  --color-border: var(--cor-borda);
+
+  --color-primary: var(--cor-destaque);
+  --color-primary-hover: var(--cor-destaque-hover);
+  --color-primary-foreground: var(--cor-destaque-texto);
+
+  --font-sans: var(--fonte-principal);
+  --font-mono: var(--fonte-codigo);
+
+  --radius-sm: var(--raio-pequeno);
+  --radius-md: var(--raio-medio);
+  --radius-lg: var(--raio-grande);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-principal), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--cor-destaque);
+  color: var(--cor-destaque-texto);
 }
