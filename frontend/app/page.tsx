@@ -1,47 +1,31 @@
 import { PainelTecnicoHero } from "@/componentes/home/PainelTecnicoHero";
+import { SecaoSobre } from "@/componentes/home/SecaoSobre";
+import { VisaoArquitetura } from "@/componentes/arquitetura/VisaoArquitetura";
+import { LinhaDoTempoExperiencia } from "@/componentes/experiencia/LinhaDoTempoExperiencia";
 import { Botao } from "@/componentes/ui/Botao";
 import { Container } from "@/componentes/ui/Container";
 import { Secao } from "@/componentes/ui/Secao";
+import { experienciasProfissionais } from "@/constantes/experiencias";
 
 const tecnologiasHero = [
   "Java",
   "Spring Boot",
   "Quarkus",
-  "APIs REST",
-  "Microsserviços",
   "Kafka",
   "Docker",
   "Kubernetes",
-  "OpenAI",
-  "Ollama",
-  "IA aplicada",
+  "IA",
 ];
 
 const indicadoresProfissionais = [
-  { valor: "8+", rotulo: "anos em desenvolvimento" },
-  { valor: "Java", rotulo: "Backend" },
-  { valor: "Enterprise", rotulo: "Sistemas" },
-  { valor: "Micro", rotulo: "serviços" },
-  { valor: "Cloud", rotulo: "Native" },
+  "8+ anos em desenvolvimento",
+  "Java Backend",
+  "Sistemas Enterprise",
+  "Microsserviços",
+  "Cloud Native",
 ];
 
 const secoesEmConstrucao = [
-  {
-    id: "sobre",
-    titulo: "Sobre",
-    rotulo: "Fundação narrativa",
-    detalheVisual: "border-primary/24 bg-primary/7",
-    descricao:
-      "Resumo profissional em preparação, mantendo o foco em trajetória Java, backend enterprise, arquitetura e IA aplicada.",
-  },
-  {
-    id: "experiencia",
-    titulo: "Experiência",
-    rotulo: "Linha do tempo",
-    detalheVisual: "border-accent/24 bg-accent/8",
-    descricao:
-      "Linha do tempo profissional será estruturada sem expor dados internos, clientes confidenciais ou detalhes sensíveis.",
-  },
   {
     id: "projetos",
     titulo: "Projetos em construção",
@@ -129,14 +113,14 @@ export default function PaginaInicial() {
 
               <h1
                 id="titulo-inicio"
-                className="mt-4 max-w-[46rem] text-4xl font-semibold leading-[1.04] text-foreground sm:text-[2.875rem] lg:text-[3.45rem]"
+                className="mt-4 max-w-[37rem] text-4xl font-semibold leading-[1.04] text-foreground sm:text-[2.6rem] lg:text-[3rem]"
               >
                 Waldir Escouto Pereira
               </h1>
 
               <h2 className="mt-5 max-w-3xl text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
                 Desenvolvedor{" "}
-                <span className="rounded-md border border-primary/20 bg-primary/8 px-2 py-1 text-primary-hover">
+                <span className="font-bold text-primary-hover">
                   Java Sênior
                 </span>
               </h2>
@@ -163,6 +147,7 @@ export default function PaginaInicial() {
                   rel="noopener noreferrer"
                   variante="secundario"
                   tamanho="grande"
+                  className="min-w-36"
                   aria-label="Acessar LinkedIn de Waldir Escouto Pereira"
                 >
                   <IconeLinkedIn />
@@ -173,8 +158,9 @@ export default function PaginaInicial() {
                   href="https://github.com/wep1980"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variante="texto"
+                  variante="secundario"
                   tamanho="grande"
+                  className="min-w-36"
                   aria-label="Acessar GitHub de Waldir Escouto Pereira"
                 >
                   <IconeGitHub />
@@ -204,17 +190,73 @@ export default function PaginaInicial() {
             <dl className="grid sm:grid-cols-2 lg:grid-cols-5">
               {indicadoresProfissionais.map((indicador) => (
                 <div
-                  key={`${indicador.valor}-${indicador.rotulo}`}
+                  key={indicador}
                   className="border-b border-border/70 px-5 py-5 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:border-r"
                 >
-                  <dt className="font-mono text-xl font-semibold text-foreground">
-                    {indicador.valor}
-                  </dt>
-                  <dd className="mt-1 text-sm text-muted">{indicador.rotulo}</dd>
+                  <dt className="sr-only">Indicador profissional</dt>
+                  <dd className="font-mono text-sm font-semibold text-foreground">
+                    {indicador}
+                  </dd>
                 </div>
               ))}
             </dl>
           </div>
+        </Container>
+      </Secao>
+
+      <SecaoSobre />
+
+      <Secao
+        id="experiencia"
+        aria-labelledby="titulo-experiencia"
+        className="py-12 sm:py-16"
+      >
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[0.36fr_0.64fr] lg:gap-12">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                Experiência
+              </p>
+              <h2
+                id="titulo-experiencia"
+                className="mt-4 text-3xl font-semibold leading-tight text-foreground sm:text-4xl"
+              >
+                Linha do tempo profissional resumida.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-muted">
+                Resumo público da atuação em desenvolvimento Java, backend e
+                evolução de aplicações corporativas.
+              </p>
+            </div>
+
+            <LinhaDoTempoExperiencia experiencias={experienciasProfissionais} />
+          </div>
+        </Container>
+      </Secao>
+
+      <Secao
+        id="arquitetura"
+        aria-labelledby="titulo-arquitetura"
+        className="py-12 sm:py-16"
+      >
+        <Container>
+          <div className="mb-7 max-w-3xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              Arquitetura
+            </p>
+            <h2
+              id="titulo-arquitetura"
+              className="mt-4 text-3xl font-semibold leading-tight text-foreground sm:text-4xl"
+            >
+              Como eu penso uma arquitetura
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted sm:text-lg">
+              Uma boa arquitetura precisa equilibrar simplicidade, evolução,
+              segurança, observabilidade e necessidades reais do negócio.
+            </p>
+          </div>
+
+          <VisaoArquitetura />
         </Container>
       </Secao>
 
