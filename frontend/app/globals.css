@@ -1,27 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --cor-fundo: #060816;
-  --cor-fundo-secundario: #0b1120;
-  --cor-superficie: #111827;
-  --cor-superficie-elevada: #172033;
-  --cor-texto-principal: #f8fafc;
-  --cor-texto-secundario: #94a3b8;
-  --cor-texto-discreto: #64748b;
-  --cor-borda: #243047;
-  --cor-destaque: #38bdf8;
-  --cor-destaque-hover: #7dd3fc;
-  --cor-destaque-texto: #06121f;
-  --cor-destaque-secundario: #8b5cf6;
-  --cor-destaque-secundario-claro: #a78bfa;
-  --cor-status: #22c55e;
+  --background: #060816;
+  --background-secondary: #0b1120;
+  --surface: #111827;
+  --surface-elevated: #172033;
+  --surface-hover: #172033;
+  --foreground: #f8fafc;
+  --muted: #94a3b8;
+  --subtle: #64748b;
+  --border: #243047;
+  --border-accent: #38bdf8;
+  --primary: #38bdf8;
+  --primary-hover: #7dd3fc;
+  --primary-foreground: #06121f;
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-gold: #d6b25e;
+  --success: #22c55e;
+  --warning: #d6b25e;
+  --error: #8b5cf6;
+
+  --font-family-heading: var(--fonte-principal), Arial, Helvetica, sans-serif;
+  --font-family-body: var(--fonte-principal), Arial, Helvetica, sans-serif;
+  --font-family-code: var(--fonte-codigo), "Courier New", monospace;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-pill: 9999px;
+
+  --shadow-sm: 0 4px 12px rgb(0 0 0 / 18%);
+  --shadow-md: 0 12px 28px rgb(0 0 0 / 24%);
+  --shadow-lg: 0 20px 48px rgb(0 0 0 / 32%);
+  --shadow-glow: 0 0 32px rgb(56 189 248 / 22%);
+  --shadow-glow-subtle: 0 0 40px rgb(56 189 248 / 14%);
+
+  --gradient-brand: linear-gradient(90deg, var(--primary), var(--accent));
+  --gradient-surface: linear-gradient(145deg, var(--surface), var(--surface-elevated));
+  --gradient-glow:
+    radial-gradient(circle at 12% 10%, rgb(56 189 248 / 20%), transparent 24rem),
+    radial-gradient(circle at 88% 14%, rgb(139 92 246 / 18%), transparent 23rem),
+    radial-gradient(circle at 22% 34rem, rgb(56 189 248 / 8%), transparent 30rem);
+
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 320ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --cor-fundo: var(--background);
+  --cor-fundo-secundario: var(--background-secondary);
+  --cor-superficie: var(--surface);
+  --cor-superficie-elevada: var(--surface-elevated);
+  --cor-texto-principal: var(--foreground);
+  --cor-texto-secundario: var(--muted);
+  --cor-texto-discreto: var(--subtle);
+  --cor-borda: var(--border);
+  --cor-destaque: var(--primary);
+  --cor-destaque-hover: var(--primary-hover);
+  --cor-destaque-texto: var(--primary-foreground);
+  --cor-destaque-secundario: var(--accent);
+  --cor-destaque-secundario-claro: var(--accent-light);
+  --cor-status: var(--success);
 
   --raio-pequeno: 0.5rem;
   --raio-medio: 0.75rem;
   --raio-grande: 1rem;
 
   --sombra-card: 0 24px 80px rgb(0 0 0 / 32%);
-  --sombra-brilho: 0 0 40px rgb(56 189 248 / 14%);
+  --sombra-brilho: var(--shadow-glow-subtle);
 }
 
 @theme inline {
@@ -29,25 +78,40 @@
   --color-background-secondary: var(--cor-fundo-secundario);
   --color-surface: var(--cor-superficie);
   --color-surface-elevated: var(--cor-superficie-elevada);
+  --color-surface-hover: var(--surface-hover);
 
   --color-foreground: var(--cor-texto-principal);
   --color-muted: var(--cor-texto-secundario);
   --color-subtle: var(--cor-texto-discreto);
   --color-border: var(--cor-borda);
+  --color-border-accent: var(--border-accent);
 
   --color-primary: var(--cor-destaque);
   --color-primary-hover: var(--cor-destaque-hover);
   --color-primary-foreground: var(--cor-destaque-texto);
   --color-accent: var(--cor-destaque-secundario);
   --color-accent-light: var(--cor-destaque-secundario-claro);
+  --color-accent-gold: var(--accent-gold);
   --color-status: var(--cor-status);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
 
   --font-sans: var(--fonte-principal);
+  --font-heading: var(--fonte-principal);
   --font-mono: var(--fonte-codigo);
 
-  --radius-sm: var(--raio-pequeno);
-  --radius-md: var(--raio-medio);
-  --radius-lg: var(--raio-grande);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-pill: 9999px;
+
+  --shadow-sm: 0 4px 12px rgb(0 0 0 / 18%);
+  --shadow-md: 0 12px 28px rgb(0 0 0 / 24%);
+  --shadow-lg: 0 20px 48px rgb(0 0 0 / 32%);
+  --shadow-glow: 0 0 32px rgb(56 189 248 / 22%);
+  --shadow-glow-subtle: 0 0 40px rgb(56 189 248 / 14%);
 }
 
 * {
@@ -64,9 +128,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at 12% 10%, rgb(56 189 248 / 20%), transparent 24rem),
-    radial-gradient(circle at 88% 14%, rgb(139 92 246 / 18%), transparent 23rem),
-    radial-gradient(circle at 22% 34rem, rgb(56 189 248 / 8%), transparent 30rem),
+    var(--gradient-glow),
     linear-gradient(180deg, var(--cor-fundo), var(--cor-fundo-secundario));
   color: var(--cor-texto-principal);
   font-family: var(--fonte-principal), Arial, Helvetica, sans-serif;

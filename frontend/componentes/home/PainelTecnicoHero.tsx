@@ -1,11 +1,11 @@
-const tecnologiasPainel = [
-  "Java 21",
-  "Spring Boot",
-  "Quarkus",
-  "Kafka",
-  "Docker",
-  "Kubernetes",
+const camadasArquitetura = [
+  "APIs",
+  "Microsserviços",
+  "Mensageria",
+  "Cloud",
 ];
+
+const tecnologiasPainel = ["Java 21", "Spring Boot", "Quarkus", "Kafka"];
 
 const linhasCodigo = [
   {
@@ -91,40 +91,79 @@ const linhasCodigo = [
 export function PainelTecnicoHero() {
   return (
     <aside
-      aria-label="Painel técnico do hero"
-      className="relative rounded-lg border border-primary/20 bg-surface/92 p-1 shadow-[0_28px_90px_rgb(0_0_0_/_38%),0_0_70px_rgb(56_189_248_/_12%)]"
+      aria-label="Composição técnica da marca WEPDEV"
+      className="relative mx-auto w-full max-w-[34rem] rounded-xl border border-primary/20 bg-[var(--gradient-surface)] p-1 shadow-lg lg:mx-0"
     >
-      <div className="absolute -left-8 top-10 -z-10 h-36 w-36 rounded-full bg-primary/14 blur-3xl" />
-      <div className="absolute -right-8 bottom-8 -z-10 h-40 w-40 rounded-full bg-accent/16 blur-3xl" />
+      <div
+        aria-hidden="true"
+        className="absolute -left-8 top-10 -z-10 h-36 w-36 rounded-full bg-primary/14 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -right-8 bottom-8 -z-10 h-40 w-40 rounded-full bg-accent/14 blur-3xl"
+      />
 
-      <div className="overflow-hidden rounded-md border border-white/6 bg-background-secondary/96">
-        <div className="flex items-center justify-between border-b border-border bg-surface-elevated/70 px-4 py-3">
-          <div className="flex items-center gap-2" aria-hidden="true">
-            <span className="size-2.5 rounded-full bg-subtle" />
-            <span className="size-2.5 rounded-full bg-accent-light" />
-            <span className="size-2.5 rounded-full bg-primary" />
+      <div className="overflow-hidden rounded-lg border border-border bg-background-secondary/96">
+        <div className="relative overflow-hidden border-b border-border bg-surface-elevated/70 px-5 py-5">
+          <div
+            aria-hidden="true"
+            className="absolute inset-y-0 left-1/3 w-1/3 bg-primary/8"
+          />
+          <div className="relative flex items-start justify-between gap-4">
+            <div>
+              <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-subtle">
+                WEPDEV
+              </p>
+              <p className="mt-2 max-w-56 text-lg font-semibold leading-6 text-foreground">
+                Backend Enterprise, Microsserviços e IA aplicada.
+              </p>
+            </div>
+
+            <div
+              aria-hidden="true"
+              className="flex size-20 shrink-0 items-center justify-center rounded-lg border border-primary/35 bg-primary/10 font-mono text-3xl font-bold text-primary shadow-glow-subtle"
+            >
+              W
+            </div>
           </div>
-
-          <p className="font-mono text-[0.7rem] text-subtle">
-            PortfolioBackend.java
-          </p>
         </div>
 
-        <div className="grid border-b border-border bg-background/82 text-[0.68rem] sm:grid-cols-[7.5rem_1fr]">
-          <div className="hidden border-r border-border bg-surface/45 p-3 font-mono leading-5 text-subtle sm:block">
+        <div className="grid gap-px bg-border/70 p-px sm:grid-cols-2">
+          {camadasArquitetura.map((camada, indice) => (
+            <div
+              key={camada}
+              className="relative overflow-hidden bg-surface/78 px-4 py-4"
+            >
+              <span className="font-mono text-[0.68rem] font-semibold text-subtle">
+                0{indice + 1}
+              </span>
+              <p className="mt-2 font-mono text-sm font-semibold text-foreground">
+                {camada}
+              </p>
+              <span
+                aria-hidden="true"
+                className="absolute right-4 top-1/2 h-px w-10 bg-primary/30"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="grid border-b border-border bg-background/82 text-[0.68rem] md:grid-cols-[8rem_1fr]">
+          <div className="hidden border-r border-border bg-surface/45 p-4 font-mono leading-6 text-subtle md:block">
             <p className="text-foreground">portfolio</p>
-            <p className="pl-3">src</p>
-            <p className="pl-5">main</p>
-            <p className="pl-7 text-primary">java</p>
-            <p className="truncate pl-8 text-foreground">
-              PortfolioBackend.java
-            </p>
+            <p className="pl-3">backend</p>
+            <p className="pl-5 text-primary">services</p>
+            <p className="pl-7">ai</p>
+            <p className="truncate pl-7 text-foreground">architecture</p>
           </div>
 
           <div className="p-4 font-mono leading-6 text-muted">
             <code className="block">
               {linhasCodigo.map((linha) => (
-                <span key={linha.numero} className="block whitespace-pre-wrap break-words">
+                <span
+                  key={linha.numero}
+                  className="block whitespace-pre-wrap break-words"
+                >
                   <span className="mr-3 select-none text-subtle">
                     {linha.numero}
                   </span>
@@ -160,9 +199,14 @@ export function PainelTecnicoHero() {
           ))}
         </div>
 
-        <p className="border-t border-border bg-background-secondary/80 px-4 py-3 font-mono text-[0.7rem] text-subtle">
-          Laboratório de IA: OpenAI e Ollama aplicados ao desenvolvimento.
-        </p>
+        <div className="grid gap-px border-t border-border bg-border/70 p-px sm:grid-cols-[1fr_auto]">
+          <p className="bg-background-secondary/80 px-4 py-3 font-mono text-[0.7rem] text-subtle">
+            IA aplicada: OpenAI e Ollama no fluxo de engenharia.
+          </p>
+          <p className="bg-background-secondary/80 px-4 py-3 font-mono text-[0.7rem] font-semibold text-accent-gold">
+            Cloud Native
+          </p>
+        </div>
       </div>
     </aside>
   );
