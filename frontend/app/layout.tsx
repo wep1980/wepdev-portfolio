@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { Cabecalho } from "@/componentes/layout/Cabecalho";
 import { Rodape } from "@/componentes/layout/Rodape";
 import "./globals.css";
@@ -56,6 +57,12 @@ export default function LayoutRaiz({
         <Cabecalho />
         {children}
         <Rodape />
+        <Script
+          src="https://analytics.wepdev.com.br/script.js"
+          data-website-id="79867cd5-31c2-4a41-8c7f-f69507a2e9af"
+          data-performance="true"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
