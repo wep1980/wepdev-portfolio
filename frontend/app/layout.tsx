@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Cabecalho } from "@/componentes/layout/Cabecalho";
 import { Rodape } from "@/componentes/layout/Rodape";
+import { urlSiteOficial } from "@/constantes/site";
 import "./globals.css";
 
 const fontePrincipal = Geist({
@@ -16,33 +17,46 @@ const fonteCodigo = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(urlSiteOficial),
+  applicationName: "WEPDEV Portfolio",
   title: {
     default: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
     template: "%s | WEPDEV Portfolio",
   },
   description:
-    "Portfólio profissional de Waldir Escouto Pereira, Desenvolvedor Java Sênior com experiência em backend enterprise, Spring Boot, Quarkus, microsserviços, arquitetura de software e Inteligência Artificial aplicada à Engenharia de Software.",
+    "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   authors: [
     {
       name: "Waldir Escouto Pereira",
+      url: urlSiteOficial,
     },
   ],
   creator: "Waldir Escouto Pereira",
+  publisher: "Waldir Escouto Pereira",
+  category: "technology",
   keywords: [
     "Waldir Escouto Pereira",
-    "Desenvolvedor Java Sênior",
-    "Java Backend",
+    "desenvolvedor Java",
+    "Java sênior",
+    "backend",
     "Spring Boot",
     "Quarkus",
-    "Microsserviços",
-    "Arquitetura de Software",
-    "Sistemas Distribuídos",
-    "Apache Kafka",
+    "microsserviços",
+    "Kafka",
     "Docker",
     "Kubernetes",
-    "Inteligência Artificial",
-    "Engenharia de Software",
+    "arquitetura de software",
+    "inteligência artificial",
+    "OpenAI",
+    "Ollama",
   ],
+  alternates: {
+    canonical: `${urlSiteOficial}/`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function LayoutRaiz({
