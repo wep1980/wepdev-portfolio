@@ -1,6 +1,10 @@
+import type { TipoCanalProfissional } from "@/dominio/contato/CanalProfissional";
+
 export const eventosAnalytics = {
   navegacao: "navigation-click",
-  canalProfissional: "professional-channel-click",
+  linkedin: "linkedin-click",
+  github: "github-click",
+  email: "email-click",
   curriculo: "curriculum-click",
   repositorioProjeto: "project-repository-click",
   ctaPrimario: "primary-cta-click",
@@ -22,15 +26,22 @@ export const secoesAnalytics = {
   contato: "contact",
 } as const;
 
-export const canaisAnalytics = {
-  linkedin: "linkedin",
-  github: "github",
-  email: "email",
-} as const;
-
 export const acoesAnalytics = {
   abrir: "open",
   verProjetos: "view-projects",
+} as const;
+
+type TipoCanalProfissionalComEvento = Exclude<
+  TipoCanalProfissional,
+  "curriculo"
+>;
+
+const eventosPorCanalProfissional: Readonly<
+  Record<TipoCanalProfissionalComEvento, EventoAnalytics>
+> = {
+  linkedin: eventosAnalytics.linkedin,
+  github: eventosAnalytics.github,
+  email: eventosAnalytics.email,
 } as const;
 
 export type EventoAnalytics =
@@ -41,9 +52,6 @@ export type LocalAnalytics =
 
 export type SecaoAnalytics =
   (typeof secoesAnalytics)[keyof typeof secoesAnalytics];
-
-export type CanalAnalytics =
-  (typeof canaisAnalytics)[keyof typeof canaisAnalytics];
 
 export type AcaoAnalytics =
   (typeof acoesAnalytics)[keyof typeof acoesAnalytics];
@@ -60,12 +68,11 @@ export function atributosNavegacaoAnalytics(
 }
 
 export function atributosCanalProfissionalAnalytics(
-  channel: CanalAnalytics,
+  tipo: TipoCanalProfissionalComEvento,
   location: Extract<LocalAnalytics, "hero" | "contact" | "footer">,
 ) {
   return {
-    "data-umami-event": eventosAnalytics.canalProfissional,
-    "data-umami-event-channel": channel,
+    "data-umami-event": eventosPorCanalProfissional[tipo],
     "data-umami-event-location": location,
   } as const;
 }

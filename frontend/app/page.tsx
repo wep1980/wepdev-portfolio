@@ -12,7 +12,6 @@ import {
   atributosCanalProfissionalAnalytics,
   atributosCtaPrimarioAnalytics,
   atributosCurriculoAnalytics,
-  canaisAnalytics,
   locaisAnalytics,
 } from "@/constantes/analytics";
 import { obterCanalProfissional } from "@/constantes/contatos";
@@ -146,7 +145,7 @@ export default function PaginaInicial() {
                   target="_blank"
                   rel="noopener noreferrer"
                   {...atributosCanalProfissionalAnalytics(
-                    canaisAnalytics.linkedin,
+                    "linkedin",
                     locaisAnalytics.hero,
                   )}
                   variante="secundario"
@@ -163,7 +162,7 @@ export default function PaginaInicial() {
                   target="_blank"
                   rel="noopener noreferrer"
                   {...atributosCanalProfissionalAnalytics(
-                    canaisAnalytics.github,
+                    "github",
                     locaisAnalytics.hero,
                   )}
                   variante="secundario"

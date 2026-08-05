@@ -3,7 +3,6 @@ import {
   atributosCanalProfissionalAnalytics,
   atributosCurriculoAnalytics,
   atributosNavegacaoAnalytics,
-  canaisAnalytics,
   locaisAnalytics,
   secoesAnalytics,
   type SecaoAnalytics,
@@ -28,14 +27,12 @@ const linksNavegacao = [
   { href: "#contato", rotulo: "Contato", secao: secoesAnalytics.contato },
 ];
 
-function obterAtributosLink(
-  canal: CanalProfissional,
-) {
+function obterAtributosLink(canal: CanalProfissional) {
   const atributosAnalytics =
     canal.tipo === "curriculo"
       ? atributosCurriculoAnalytics(locaisAnalytics.rodape)
       : atributosCanalProfissionalAnalytics(
-          canaisAnalytics[canal.tipo],
+          canal.tipo,
           locaisAnalytics.rodape,
         );
 

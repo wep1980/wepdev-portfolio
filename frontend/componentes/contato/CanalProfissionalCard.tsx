@@ -2,7 +2,6 @@ import type { CanalProfissional } from "@/dominio/contato/CanalProfissional";
 import {
   atributosCanalProfissionalAnalytics,
   atributosCurriculoAnalytics,
-  canaisAnalytics,
   locaisAnalytics,
 } from "@/constantes/analytics";
 
@@ -22,7 +21,7 @@ function obterAtributosLink(canal: CanalProfissional) {
     canal.tipo === "curriculo"
       ? atributosCurriculoAnalytics(locaisAnalytics.contato)
       : atributosCanalProfissionalAnalytics(
-          canaisAnalytics[canal.tipo],
+          canal.tipo,
           locaisAnalytics.contato,
         );
 
