@@ -1,11 +1,14 @@
+import { SecaoContato } from "@/componentes/contato/SecaoContato";
 import { PainelTecnicoHero } from "@/componentes/home/PainelTecnicoHero";
 import { SecaoSobre } from "@/componentes/home/SecaoSobre";
 import { VisaoArquitetura } from "@/componentes/arquitetura/VisaoArquitetura";
 import { LinhaDoTempoExperiencia } from "@/componentes/experiencia/LinhaDoTempoExperiencia";
+import { SecaoPrincipiosEngenharia } from "@/componentes/principios/SecaoPrincipiosEngenharia";
 import { SecaoProjetos } from "@/componentes/projetos/SecaoProjetos";
 import { Botao } from "@/componentes/ui/Botao";
 import { Container } from "@/componentes/ui/Container";
 import { Secao } from "@/componentes/ui/Secao";
+import { obterCanalProfissional } from "@/constantes/contatos";
 import { experienciasProfissionais } from "@/constantes/experiencias";
 
 const tecnologiasHero = [
@@ -26,16 +29,9 @@ const indicadoresProfissionais = [
   "Cloud Native",
 ];
 
-const secoesEmConstrucao = [
-  {
-    id: "contato",
-    titulo: "Contato",
-    rotulo: "Canais profissionais",
-    detalheVisual: "border-status/22 bg-status/7",
-    descricao:
-      "Canais profissionais serão consolidados para facilitar conversas sobre oportunidades, projetos e colaboração técnica.",
-  },
-];
+const canalLinkedIn = obterCanalProfissional("linkedin");
+const canalGitHub = obterCanalProfissional("github");
+const canalCurriculo = obterCanalProfissional("curriculo");
 
 function IconeGitHub() {
   return (
@@ -135,9 +131,10 @@ export default function PaginaInicial() {
                 </Botao>
 
                 <Botao
-                  href="https://www.linkedin.com/in/waldir-escouto-pereira"
+                  href={canalLinkedIn.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-umami-event={canalLinkedIn.eventoAnalitico}
                   variante="secundario"
                   tamanho="grande"
                   className="min-w-36"
@@ -148,9 +145,10 @@ export default function PaginaInicial() {
                 </Botao>
 
                 <Botao
-                  href="https://github.com/wep1980"
+                  href={canalGitHub.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-umami-event={canalGitHub.eventoAnalitico}
                   variante="secundario"
                   tamanho="grande"
                   className="min-w-36"
@@ -158,6 +156,19 @@ export default function PaginaInicial() {
                 >
                   <IconeGitHub />
                   GitHub
+                </Botao>
+
+                <Botao
+                  href={canalCurriculo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-umami-event={canalCurriculo.eventoAnalitico}
+                  variante="secundario"
+                  tamanho="grande"
+                  className="min-w-36"
+                  aria-label="Acessar currículo de Waldir Escouto Pereira em PDF"
+                >
+                  Currículo PDF
                 </Botao>
               </div>
 
@@ -255,33 +266,9 @@ export default function PaginaInicial() {
 
       <SecaoProjetos />
 
-      {secoesEmConstrucao.map((secao) => (
-        <Secao
-          key={secao.id}
-          id={secao.id}
-          aria-labelledby={`titulo-${secao.id}`}
-          className="py-10 sm:py-12"
-        >
-          <Container>
-            <div
-              className={`rounded-lg border ${secao.detalheVisual} p-6 shadow-[0_18px_60px_rgb(0_0_0_/_18%)] sm:p-8`}
-            >
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">
-                {secao.rotulo}
-              </p>
-              <h2
-                id={`titulo-${secao.id}`}
-                className="mt-3 text-2xl font-semibold leading-tight text-foreground sm:text-3xl"
-              >
-                {secao.titulo}
-              </h2>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
-                {secao.descricao}
-              </p>
-            </div>
-          </Container>
-        </Secao>
-      ))}
+      <SecaoPrincipiosEngenharia />
+
+      <SecaoContato />
     </main>
   );
 }

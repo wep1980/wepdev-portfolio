@@ -16,11 +16,11 @@ const fonteCodigo = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "WEPDEV Portfolio | Waldir Escouto Pereira",
+    default: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
     template: "%s | WEPDEV Portfolio",
   },
   description:
-    "Portfólio profissional de Waldir Escouto Pereira, Desenvolvedor Java Sênior especializado em Java, Spring Boot, Quarkus, microsserviços e arquitetura de software.",
+    "Portfólio profissional de Waldir Escouto Pereira, Desenvolvedor Java Sênior com experiência em backend enterprise, Spring Boot, Quarkus, microsserviços, arquitetura de software e Inteligência Artificial aplicada à Engenharia de Software.",
   authors: [
     {
       name: "Waldir Escouto Pereira",
@@ -30,12 +30,17 @@ export const metadata: Metadata = {
   keywords: [
     "Waldir Escouto Pereira",
     "Desenvolvedor Java Sênior",
-    "Java",
+    "Java Backend",
     "Spring Boot",
     "Quarkus",
     "Microsserviços",
     "Arquitetura de Software",
-    "Backend",
+    "Sistemas Distribuídos",
+    "Apache Kafka",
+    "Docker",
+    "Kubernetes",
+    "Inteligência Artificial",
+    "Engenharia de Software",
   ],
 };
 
