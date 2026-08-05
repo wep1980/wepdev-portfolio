@@ -7,7 +7,7 @@
 - Produto: WEPDEV Portfolio
 - Sprint: 6 — Conversão e Observabilidade de Produto
 - Prioridade: Alta
-- Estado: Pronto para refinamento
+- Estado: Concluído
 - Responsável: Waldir Escouto Pereira
 
 ## 2. Contexto Confirmado
@@ -19,9 +19,9 @@
 - Website ID integrado ao frontend: `79867cd5-31c2-4a41-8c7f-f69507a2e9af`
 - Rastreamento básico funcionando em produção.
 - Core Web Vitals habilitados por `data-performance="true"`.
-- Eventos `data-umami-event` já existem em parte do frontend.
+- Eventos `data-umami-event` padronizados e validados em produção.
 
-Este épico parte do pressuposto de que a integração global do Umami já existe no layout da aplicação e que a próxima evolução será padronizar e expandir eventos de conversão sem alterar a experiência visual.
+Este épico registra a integração global do Umami, a padronização dos eventos de conversão e a validação em ambiente real, sem alterar a experiência visual do portfólio.
 
 ## 3. Objetivo
 
@@ -68,22 +68,22 @@ O objetivo não é vigiar pessoas individualmente. O objetivo é analisar compor
 
 | Evento atual | Arquivo / componente | Elemento rastreado | Destino | Clareza do nome | Risco de duplicidade | Propriedades faltantes | Decisão recomendada |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `Contato - LinkedIn` | `frontend/constantes/contatos.ts`; renderizado por `frontend/app/page.tsx`, `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links para LinkedIn no Hero, Contato e Rodapé | `https://www.linkedin.com/in/wepdev/` | Parcialmente claro, mas fora da taxonomia proposta | Não duplica no mesmo clique, mas agrega locais diferentes sem distinguir origem | `channel`, `location` | Renomear para `professional-channel-click` com `channel=linkedin` e `location=hero/contact/footer` |
-| `Contato - Email` | `frontend/constantes/contatos.ts`; renderizado por `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links de e-mail em Contato e Rodapé | `mailto:wepcienciadacomputacao@gmail.com` | Parcialmente claro, mas fora da taxonomia proposta | Não duplica no mesmo clique, mas agrega locais diferentes sem distinguir origem | `channel`, `location` | Renomear para `professional-channel-click` com `channel=email` e `location=contact/footer` |
-| `Contato - GitHub` | `frontend/constantes/contatos.ts`; renderizado por `frontend/app/page.tsx`, `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links para GitHub no Hero, Contato e Rodapé | `https://github.com/wep1980` | Parcialmente claro, mas fora da taxonomia proposta | Não duplica no mesmo clique, mas agrega locais diferentes sem distinguir origem | `channel`, `location` | Renomear para `professional-channel-click` com `channel=github` e `location=hero/contact/footer` |
-| `Contato - Curriculo` | `frontend/constantes/contatos.ts`; renderizado por `frontend/app/page.tsx`, `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links para currículo no Hero, Contato e Rodapé | `/waldir_escouto_pereira_cv.pdf` | Parcialmente claro, mas fora da taxonomia proposta | Não duplica no mesmo clique, mas agrega locais diferentes sem distinguir origem | `location`, `action` | Renomear para `curriculum-click` com `action=open` e `location=hero/contact/footer` |
-| `Projeto - WEPDEV Portfolio` | `frontend/componentes/projetos/CardProjeto.tsx` | Link do repositório do projeto WEPDEV Portfolio | `https://github.com/wep1980/wepdev-portfolio` | Claro para o projeto específico, mas fora da taxonomia proposta | Baixo; aplicado somente ao projeto `wepdev-portfolio` quando há `repositorioUrl` | `project`, `project-status`, `location` | Renomear para `project-repository-click` com `project=wepdev-portfolio`, `project-status=em-evolucao`, `location=projects` |
+| `Contato - LinkedIn` | `frontend/constantes/contatos.ts`; renderizado por `frontend/app/page.tsx`, `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links para LinkedIn no Hero, Contato e Rodapé | `https://www.linkedin.com/in/wepdev/` | Legado, fora da taxonomia final | Não duplicava no mesmo clique, mas agregava locais diferentes sem distinguir origem | `location` | Substituído por `linkedin-click` com `location=hero/contact/footer` |
+| `Contato - Email` | `frontend/constantes/contatos.ts`; renderizado por `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links de e-mail em Contato e Rodapé | `mailto:wepcienciadacomputacao@gmail.com` | Legado, fora da taxonomia final | Não duplicava no mesmo clique, mas agregava locais diferentes sem distinguir origem | `location` | Substituído por `email-click` com `location=contact/footer` |
+| `Contato - GitHub` | `frontend/constantes/contatos.ts`; renderizado por `frontend/app/page.tsx`, `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links para GitHub no Hero, Contato e Rodapé | `https://github.com/wep1980` | Legado, fora da taxonomia final | Não duplicava no mesmo clique, mas agregava locais diferentes sem distinguir origem | `location` | Substituído por `github-click` com `location=hero/contact/footer` |
+| `Contato - Curriculo` | `frontend/constantes/contatos.ts`; renderizado por `frontend/app/page.tsx`, `frontend/componentes/contato/CanalProfissionalCard.tsx` e `frontend/componentes/layout/Rodape.tsx` | Links para currículo no Hero, Contato e Rodapé | `/waldir_escouto_pereira_cv.pdf` | Legado, fora da taxonomia final | Não duplicava no mesmo clique, mas agregava locais diferentes sem distinguir origem | `location`, `action` | Substituído por `curriculum-click` com `action=open` e `location=hero/contact/footer` |
+| `Projeto - WEPDEV Portfolio` | `frontend/componentes/projetos/CardProjeto.tsx` | Link do repositório do projeto WEPDEV Portfolio | `https://github.com/wep1980/wepdev-portfolio` | Legado, fora da taxonomia final | Baixo; aplicado somente ao projeto `wepdev-portfolio` quando há `repositorioUrl` | `project`, `project-status`, `location` | Substituído por `project-repository-click` com `project=wepdev-portfolio`, `project-status=em-evolucao`, `location=projects` |
 
 ### 5.3 Links Sem Evento Atualmente
 
 | Arquivo / componente | Elemento | Destino | Observação |
 | --- | --- | --- | --- |
-| `frontend/componentes/layout/Cabecalho.tsx` | Logo WEPDEV | `#inicio` | Candidato a `navigation-click` com `section=inicio`, `location=header` |
-| `frontend/componentes/layout/Cabecalho.tsx` | Navegação principal | `#inicio`, `#sobre`, `#experiencia`, `#projetos`, `#contato` | Candidato a `navigation-click` com `location=header` |
-| `frontend/componentes/layout/Cabecalho.tsx` | Botão Contato | `#contato` | Candidato a `navigation-click`; cuidado para não duplicar com link de navegação para a mesma seção |
-| `frontend/app/page.tsx` | CTA "Ver projetos" | `#projetos` | Candidato a `primary-cta-click` ou `navigation-click`; escolher apenas um para evitar redundância |
-| `frontend/componentes/layout/Rodape.tsx` | Navegação do rodapé | `#inicio`, `#sobre`, `#experiencia`, `#projetos`, `#contato` | Candidato a `navigation-click` com `location=footer` |
-| `frontend/componentes/projetos/CardProjeto.tsx` | Toggle de conceitos | `<details>` | Candidato a `project-details-toggle` somente se houver rastreamento confiável de abrir/fechar sem complexidade excessiva |
+| `frontend/componentes/layout/Cabecalho.tsx` | Logo WEPDEV | `#inicio` | Não instrumentado para evitar evento de baixa intenção nesta etapa |
+| `frontend/componentes/layout/Cabecalho.tsx` | Navegação principal | `#inicio`, `#sobre`, `#experiencia`, `#projetos`, `#contato` | Instrumentado com `navigation-click` e `location=header` |
+| `frontend/componentes/layout/Cabecalho.tsx` | Botão Contato | `#contato` | Instrumentado com `navigation-click`, `section=contact` e `location=header` |
+| `frontend/app/page.tsx` | CTA "Ver projetos" | `#projetos` | Instrumentado somente com `primary-cta-click`, sem duplicar `navigation-click` |
+| `frontend/componentes/layout/Rodape.tsx` | Navegação do rodapé | `#inicio`, `#sobre`, `#experiencia`, `#projetos`, `#contato` | Instrumentado com `navigation-click` e `location=footer` |
+| `frontend/componentes/projetos/CardProjeto.tsx` | Toggle de conceitos | `<details>` | Não instrumentado; `project-details-toggle` ficou fora de escopo por exigir rastreamento de estado com JavaScript imperativo |
 
 ## 6. Taxonomia dos Eventos
 
@@ -113,28 +113,54 @@ Propriedades:
 
 Valores esperados para `section`:
 
-- `inicio`
-- `sobre`
-- `experiencia`
-- `projetos`
-- `contato`
+- `home`
+- `about`
+- `experience`
+- `projects`
+- `contact`
 
-#### `professional-channel-click`
+#### `linkedin-click`
 
-Uso: rastrear cliques em canais profissionais.
+Uso: rastrear cliques em links profissionais para o LinkedIn.
 
 Propriedades:
 
-- `channel`
 - `location`
 
-Canais possíveis:
+Valores esperados para `location`:
 
-- `linkedin`
-- `github`
-- `email`
+- `hero`
+- `contact`
+- `footer`
 
-O currículo não deve usar este evento, pois possui taxonomia própria.
+#### `github-click`
+
+Uso: rastrear cliques em links profissionais para o GitHub.
+
+Propriedades:
+
+- `location`
+
+Valores esperados para `location`:
+
+- `hero`
+- `contact`
+- `footer`
+
+#### `email-click`
+
+Uso: rastrear cliques em links de e-mail profissional.
+
+Propriedades:
+
+- `location`
+
+Valores esperados para `location`:
+
+- `contact`
+- `footer`
+
+O evento genérico `professional-channel-click` foi removido definitivamente porque o Umami 3.2.0 não permite criar Goals filtrando propriedades de eventos. A propriedade `channel` também foi removida: o próprio nome do evento identifica o canal.
 
 #### `curriculum-click`
 
@@ -145,10 +171,9 @@ Propriedades:
 - `location`
 - `action`
 
-Ações possíveis:
+Ação atual:
 
 - `open`
-- `download`
 
 Não afirmar "download concluído" quando o comportamento configurado apenas abre o PDF ou entrega o arquivo ao navegador. Quando o link abre o PDF em nova aba, a ação deve ser `open`.
 
@@ -195,7 +220,7 @@ Exemplo:
 - `action=view-projects`
 - `location=hero`
 
-Avaliação: o CTA "Ver projetos" pode ser rastreado como `navigation-click` com `section=projetos` e `location=hero`. Manter `primary-cta-click` somente se houver necessidade analítica de separar CTA primário de navegação comum. Não criar os dois eventos no mesmo clique.
+Avaliação: o CTA "Ver projetos" foi mantido como `primary-cta-click` com `action=view-projects` e `location=hero`, sem registrar `navigation-click` no mesmo clique.
 
 ## 7. Locais de Origem
 
@@ -228,9 +253,9 @@ Não usar o título visual como chave analítica se `id` ou `slug` existir.
 ### 9.1 Conversões de Alta Intenção
 
 - `curriculum-click`
-- `professional-channel-click` com `channel=email`
-- `professional-channel-click` com `channel=linkedin`
-- `professional-channel-click` com `channel=github`
+- `email-click`
+- `linkedin-click`
+- `github-click`
 - `project-repository-click`
 
 ### 9.2 Conversões de Navegação
@@ -242,17 +267,17 @@ Visitantes e pageviews não são conversões por si só. Eles representam volume
 
 ## 10. Metas no Umami
 
-As metas abaixo são sugestões para configuração manual no painel do Umami depois que os eventos padronizados estiverem em produção.
+As metas abaixo foram configuradas no painel do Umami após validação dos eventos padronizados em produção.
 
 | Meta | Evento | Filtro por propriedade | Significado | Limitação |
 | --- | --- | --- | --- | --- |
-| Currículo acessado | `curriculum-click` | `action=open` ou `action=download` | Visitante demonstrou interesse em consultar o currículo | Não confirma leitura completa nem download concluído |
-| LinkedIn acessado | `professional-channel-click` | `channel=linkedin` | Visitante abriu o canal preferencial de contato profissional | Não confirma envio de mensagem no LinkedIn |
-| GitHub acessado | `professional-channel-click` | `channel=github` | Visitante demonstrou interesse em projetos e código público | Não confirma visita efetiva após sair do site |
-| E-mail iniciado | `professional-channel-click` | `channel=email` | Visitante iniciou contato por cliente de e-mail | Não confirma envio da mensagem |
+| Currículo acessado | `curriculum-click` | `action=open` | Visitante demonstrou interesse em consultar o currículo | Não confirma leitura completa nem download concluído |
+| LinkedIn acessado | `linkedin-click` | Não aplicável | Visitante abriu o canal preferencial de contato profissional | Não confirma envio de mensagem no LinkedIn |
+| GitHub acessado | `github-click` | Não aplicável | Visitante demonstrou interesse em projetos e código público | Não confirma visita efetiva após sair do site |
+| E-mail iniciado | `email-click` | Não aplicável | Visitante iniciou contato por cliente de e-mail | Não confirma envio da mensagem |
 | Repositório de projeto acessado | `project-repository-click` | opcionalmente `project=<id>` | Visitante abriu repositório público de projeto | Não confirma leitura do repositório nem ação no GitHub |
 
-Não configurar diretamente o painel nesta etapa de especificação.
+Como o Umami 3.2.0 não permite Goals filtradas por propriedades de eventos, canais profissionais usam eventos específicos por canal.
 
 ## 11. Funis
 
@@ -261,9 +286,9 @@ Os funis devem ser criados somente depois que houver volume suficiente de evento
 ### Funil 1 — Interesse Profissional
 
 1. Pageview `/`
-2. `navigation-click` para `section=projetos` ou `primary-cta-click` com `action=view-projects`
+2. `navigation-click` para `section=projects` ou `primary-cta-click` com `action=view-projects`
 3. `project-repository-click`
-4. `curriculum-click` ou `professional-channel-click`
+4. `curriculum-click`, `linkedin-click`, `github-click` ou `email-click`
 
 ### Funil 2 — Conversão Direta
 
@@ -273,8 +298,8 @@ Os funis devem ser criados somente depois que houver volume suficiente de evento
 ### Funil 3 — Contato
 
 1. Pageview `/`
-2. `navigation-click` para `section=contato`
-3. `professional-channel-click`
+2. `navigation-click` para `section=contact`
+3. `linkedin-click`, `github-click` ou `email-click`
 
 ## 12. Dashboard
 
@@ -411,10 +436,11 @@ Valor: mostra quais canais geram maior interesse profissional.
 
 Critérios de aceite:
 
-- LinkedIn usa `professional-channel-click` com `channel=linkedin`;
-- GitHub usa `professional-channel-click` com `channel=github`;
-- e-mail usa `professional-channel-click` com `channel=email`;
+- LinkedIn usa `linkedin-click`;
+- GitHub usa `github-click`;
+- e-mail usa `email-click`;
 - `location` diferencia `hero`, `contact` e `footer`;
+- a propriedade `channel` não é enviada;
 - nenhum dado pessoal do visitante é enviado.
 
 Dependências:
@@ -438,7 +464,6 @@ Critérios de aceite:
 - currículo usa `curriculum-click`;
 - `location` diferencia origem do clique;
 - `action=open` é usado quando o comportamento é abrir PDF;
-- `action=download` só é usado quando houver atributo `download` ou comportamento real de download;
 - PDF continua acessível.
 
 Dependências:
@@ -642,7 +667,7 @@ Fora de escopo:
 - Revisar eventos existentes.
 - Aprovar taxonomia.
 - Mapear nomes legados para novos eventos.
-- Definir vocabulários controlados para `location`, `channel`, `section`, `action`, `project` e `project-status`.
+- Definir vocabulários controlados para `location`, `section`, `action`, `project` e `project-status`.
 - Corrigir eventos existentes sem alterar comportamento visual.
 
 ### Fase 2 — Instrumentação Principal
@@ -673,7 +698,7 @@ Fora de escopo:
 
 ## 19. Definição de Pronto
 
-O épico só estará pronto quando:
+O épico foi concluído quando:
 
 - eventos críticos estiverem instrumentados;
 - eventos forem confirmados no Umami;
@@ -712,3 +737,27 @@ O épico só estará pronto quando:
 - Se for necessário adicionar propriedades customizadas do Umami, a implementação deve validar o formato suportado pela versão self-hosted 3.2.0 antes de alterar o frontend.
 - Eventos em `<details>` devem ser tratados com cautela, pois rastrear abertura e fechamento corretamente pode exigir JavaScript imperativo. Esse evento é secundário e não deve prejudicar simplicidade ou acessibilidade.
 - Nomes legados atuais em português devem ser tratados como dívida de padronização, não como erro crítico de produção.
+
+## 22. Implementação Concluída
+
+- Integração global do script do Umami concluída no layout global da aplicação.
+- Script configurado: `https://analytics.wepdev.com.br/script.js`.
+- Website ID configurado: `79867cd5-31c2-4a41-8c7f-f69507a2e9af`.
+- Core Web Vitals habilitados por `data-performance="true"`.
+- Eventos finais adotados: `linkedin-click`, `github-click`, `email-click`, `curriculum-click`, `project-repository-click`, `navigation-click` e `primary-cta-click`.
+- Evento `professional-channel-click` removido definitivamente.
+- Propriedade `channel` removida da taxonomia e dos atributos analíticos.
+- Eventos testados em produção no site público `https://wepdev.com.br`.
+- Goals configuradas e funcionando no Umami para currículo, LinkedIn, GitHub, e-mail e repositório de projeto.
+- Validação realizada em ambiente real.
+- Deploy concluído.
+- Containers saudáveis após a publicação.
+
+## 23. Próximas Evoluções
+
+Ficaram para futuros épicos:
+
+- Funnels.
+- Heatmaps.
+- Session Replay.
+- Dashboards executivos.
