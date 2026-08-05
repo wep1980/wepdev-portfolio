@@ -1,13 +1,27 @@
 import { Container } from "@/componentes/ui/Container";
 import { Botao } from "@/componentes/ui/Botao";
+import {
+  atributosNavegacaoAnalytics,
+  locaisAnalytics,
+  secoesAnalytics,
+  type SecaoAnalytics,
+} from "@/constantes/analytics";
 
 const linksNavegacao = [
-  { href: "#inicio", rotulo: "Início" },
-  { href: "#sobre", rotulo: "Sobre" },
-  { href: "#experiencia", rotulo: "Experiência" },
-  { href: "#projetos", rotulo: "Projetos" },
-  { href: "#contato", rotulo: "Contato" },
+  { href: "#inicio", rotulo: "Início", secao: secoesAnalytics.inicio },
+  { href: "#sobre", rotulo: "Sobre", secao: secoesAnalytics.sobre },
+  {
+    href: "#experiencia",
+    rotulo: "Experiência",
+    secao: secoesAnalytics.experiencia,
+  },
+  { href: "#projetos", rotulo: "Projetos", secao: secoesAnalytics.projetos },
+  { href: "#contato", rotulo: "Contato", secao: secoesAnalytics.contato },
 ];
+
+function obterAtributosNavegacao(secao: SecaoAnalytics) {
+  return atributosNavegacaoAnalytics(secao, locaisAnalytics.cabecalho);
+}
 
 export function Cabecalho() {
   return (
@@ -29,6 +43,7 @@ export function Cabecalho() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  {...obterAtributosNavegacao(link.secao)}
                   className="rounded-md px-1 py-2 outline-none transition hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                 >
                   {link.rotulo}
@@ -38,7 +53,12 @@ export function Cabecalho() {
           </ul>
         </nav>
 
-        <Botao href="#contato" variante="secundario" className="hidden sm:inline-flex">
+        <Botao
+          href="#contato"
+          {...obterAtributosNavegacao(secoesAnalytics.contato)}
+          variante="secundario"
+          className="hidden sm:inline-flex"
+        >
           Contato
         </Botao>
       </Container>

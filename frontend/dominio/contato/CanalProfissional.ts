@@ -13,5 +13,4 @@ export type CanalProfissional = {
   readonly principal?: boolean;
   readonly tipo: TipoCanalProfissional;
   readonly download?: string;
-  readonly eventoAnalitico?: string;
 };

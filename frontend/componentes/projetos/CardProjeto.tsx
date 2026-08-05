@@ -1,6 +1,7 @@
 import { EstadoProjetoBadge } from "@/componentes/projetos/EstadoProjetoBadge";
 import { ListaTecnologiasProjeto } from "@/componentes/projetos/ListaTecnologiasProjeto";
 import { Botao } from "@/componentes/ui/Botao";
+import { atributosRepositorioProjetoAnalytics } from "@/constantes/analytics";
 import type { Projeto } from "@/dominio/projeto/Projeto";
 import { rotulosTipoProjeto } from "@/dominio/projeto/TipoProjeto";
 
@@ -132,11 +133,10 @@ export function CardProjeto({
               href={projeto.repositorioUrl}
               target="_blank"
               rel="noopener noreferrer"
-              data-umami-event={
-                projeto.id === "wepdev-portfolio"
-                  ? "Projeto - WEPDEV Portfolio"
-                  : undefined
-              }
+              {...atributosRepositorioProjetoAnalytics(
+                projeto.id,
+                projeto.estado,
+              )}
               variante="secundario"
               aria-label={`Abrir repositório do projeto ${projeto.nome} no GitHub`}
             >

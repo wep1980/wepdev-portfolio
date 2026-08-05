@@ -1,32 +1,57 @@
 import { Container } from "@/componentes/ui/Container";
 import {
+  atributosCanalProfissionalAnalytics,
+  atributosCurriculoAnalytics,
+  atributosNavegacaoAnalytics,
+  canaisAnalytics,
+  locaisAnalytics,
+  secoesAnalytics,
+  type SecaoAnalytics,
+} from "@/constantes/analytics";
+import {
   canaisProfissionais,
   cargoProfissional,
   localizacaoPublica,
   nomeProfissional,
 } from "@/constantes/contatos";
+import type { CanalProfissional } from "@/dominio/contato/CanalProfissional";
 
 const linksNavegacao = [
-  { href: "#inicio", rotulo: "Início" },
-  { href: "#sobre", rotulo: "Sobre" },
-  { href: "#experiencia", rotulo: "Experiência" },
-  { href: "#projetos", rotulo: "Projetos" },
-  { href: "#contato", rotulo: "Contato" },
+  { href: "#inicio", rotulo: "Início", secao: secoesAnalytics.inicio },
+  { href: "#sobre", rotulo: "Sobre", secao: secoesAnalytics.sobre },
+  {
+    href: "#experiencia",
+    rotulo: "Experiência",
+    secao: secoesAnalytics.experiencia,
+  },
+  { href: "#projetos", rotulo: "Projetos", secao: secoesAnalytics.projetos },
+  { href: "#contato", rotulo: "Contato", secao: secoesAnalytics.contato },
 ];
 
 function obterAtributosLink(
-  externo: boolean,
-  eventoAnalitico?: string,
+  canal: CanalProfissional,
 ) {
+  const atributosAnalytics =
+    canal.tipo === "curriculo"
+      ? atributosCurriculoAnalytics(locaisAnalytics.rodape)
+      : atributosCanalProfissionalAnalytics(
+          canaisAnalytics[canal.tipo],
+          locaisAnalytics.rodape,
+        );
+
   return {
-    ...(externo
+    ...(canal.externo
       ? {
           target: "_blank",
           rel: "noopener noreferrer",
         }
       : {}),
-    ...(eventoAnalitico ? { "data-umami-event": eventoAnalitico } : {}),
+    ...atributosAnalytics,
   };
+}
+
+function obterAtributosNavegacao(secao: SecaoAnalytics) {
+  return atributosNavegacaoAnalytics(secao, locaisAnalytics.rodape);
 }
 
 function obterRotuloCanalRodape(canal: (typeof canaisProfissionais)[number]) {
@@ -71,6 +96,7 @@ export function Rodape() {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    {...obterAtributosNavegacao(link.secao)}
                     className="inline-flex min-h-7 items-center rounded-sm font-medium text-foreground outline-none transition hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                   >
                     {link.rotulo}
@@ -89,10 +115,7 @@ export function Rodape() {
                 <li key={canal.id}>
                   <a
                     href={canal.href}
-                    {...obterAtributosLink(
-                      canal.externo,
-                      canal.eventoAnalitico,
-                    )}
+                    {...obterAtributosLink(canal)}
                     className="inline-flex min-h-7 items-center rounded-sm font-medium text-foreground outline-none transition hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                   >
                     {obterRotuloCanalRodape(canal)}

@@ -8,6 +8,13 @@ import { SecaoProjetos } from "@/componentes/projetos/SecaoProjetos";
 import { Botao } from "@/componentes/ui/Botao";
 import { Container } from "@/componentes/ui/Container";
 import { Secao } from "@/componentes/ui/Secao";
+import {
+  atributosCanalProfissionalAnalytics,
+  atributosCtaPrimarioAnalytics,
+  atributosCurriculoAnalytics,
+  canaisAnalytics,
+  locaisAnalytics,
+} from "@/constantes/analytics";
 import { obterCanalProfissional } from "@/constantes/contatos";
 import { experienciasProfissionais } from "@/constantes/experiencias";
 
@@ -126,7 +133,11 @@ export default function PaginaInicial() {
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Botao href="#projetos" tamanho="grande">
+                <Botao
+                  href="#projetos"
+                  {...atributosCtaPrimarioAnalytics()}
+                  tamanho="grande"
+                >
                   Ver projetos
                 </Botao>
 
@@ -134,7 +145,10 @@ export default function PaginaInicial() {
                   href={canalLinkedIn.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-umami-event={canalLinkedIn.eventoAnalitico}
+                  {...atributosCanalProfissionalAnalytics(
+                    canaisAnalytics.linkedin,
+                    locaisAnalytics.hero,
+                  )}
                   variante="secundario"
                   tamanho="grande"
                   className="min-w-36"
@@ -148,7 +162,10 @@ export default function PaginaInicial() {
                   href={canalGitHub.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-umami-event={canalGitHub.eventoAnalitico}
+                  {...atributosCanalProfissionalAnalytics(
+                    canaisAnalytics.github,
+                    locaisAnalytics.hero,
+                  )}
                   variante="secundario"
                   tamanho="grande"
                   className="min-w-36"
@@ -162,7 +179,7 @@ export default function PaginaInicial() {
                   href={canalCurriculo.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-umami-event={canalCurriculo.eventoAnalitico}
+                  {...atributosCurriculoAnalytics(locaisAnalytics.hero)}
                   variante="secundario"
                   tamanho="grande"
                   className="min-w-36"

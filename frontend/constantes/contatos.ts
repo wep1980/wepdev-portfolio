@@ -15,7 +15,6 @@ export const canaisProfissionais: readonly CanalProfissional[] = [
     externo: true,
     principal: true,
     tipo: "linkedin",
-    eventoAnalitico: "Contato - LinkedIn",
   },
   {
     id: "email",
@@ -24,7 +23,6 @@ export const canaisProfissionais: readonly CanalProfissional[] = [
     href: `mailto:${emailProfissional}`,
     externo: false,
     tipo: "email",
-    eventoAnalitico: "Contato - Email",
   },
   {
     id: "github",
@@ -33,7 +31,6 @@ export const canaisProfissionais: readonly CanalProfissional[] = [
     href: "https://github.com/wep1980",
     externo: true,
     tipo: "github",
-    eventoAnalitico: "Contato - GitHub",
   },
   {
     id: "curriculo",
@@ -42,7 +39,6 @@ export const canaisProfissionais: readonly CanalProfissional[] = [
     href: urlCurriculo,
     externo: true,
     tipo: "curriculo",
-    eventoAnalitico: "Contato - Curriculo",
   },
 ];
 

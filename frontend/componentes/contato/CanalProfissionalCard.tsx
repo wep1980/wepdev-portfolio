@@ -1,4 +1,10 @@
 import type { CanalProfissional } from "@/dominio/contato/CanalProfissional";
+import {
+  atributosCanalProfissionalAnalytics,
+  atributosCurriculoAnalytics,
+  canaisAnalytics,
+  locaisAnalytics,
+} from "@/constantes/analytics";
 
 type PropriedadesCanalProfissionalCard = {
   canal: CanalProfissional;
@@ -12,6 +18,14 @@ const rotulosTipo: Record<CanalProfissional["tipo"], string> = {
 };
 
 function obterAtributosLink(canal: CanalProfissional) {
+  const atributosAnalytics =
+    canal.tipo === "curriculo"
+      ? atributosCurriculoAnalytics(locaisAnalytics.contato)
+      : atributosCanalProfissionalAnalytics(
+          canaisAnalytics[canal.tipo],
+          locaisAnalytics.contato,
+        );
+
   return {
     ...(canal.externo
       ? {
@@ -20,9 +34,7 @@ function obterAtributosLink(canal: CanalProfissional) {
         }
       : {}),
     ...(canal.download ? { download: canal.download } : {}),
-    ...(canal.eventoAnalitico
-      ? { "data-umami-event": canal.eventoAnalitico }
-      : {}),
+    ...atributosAnalytics,
   };
 }
 
