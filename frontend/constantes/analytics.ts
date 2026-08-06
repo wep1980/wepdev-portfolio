@@ -5,6 +5,7 @@ export const eventosAnalytics = {
   linkedin: "linkedin-click",
   github: "github-click",
   email: "email-click",
+  whatsapp: "whatsapp-click",
   curriculo: "curriculum-click",
   repositorioProjeto: "project-repository-click",
   ctaPrimario: "primary-cta-click",
@@ -20,6 +21,7 @@ export const locaisAnalytics = {
 
 export const secoesAnalytics = {
   inicio: "home",
+  tecnologias: "technologies",
   sobre: "about",
   experiencia: "experience",
   projetos: "projects",
@@ -42,6 +44,7 @@ const eventosPorCanalProfissional: Readonly<
   linkedin: eventosAnalytics.linkedin,
   github: eventosAnalytics.github,
   email: eventosAnalytics.email,
+  whatsapp: eventosAnalytics.whatsapp,
 } as const;
 
 export type EventoAnalytics =
