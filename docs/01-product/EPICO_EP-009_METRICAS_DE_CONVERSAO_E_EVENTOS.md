@@ -162,6 +162,21 @@ Valores esperados para `location`:
 
 O evento genérico `professional-channel-click` foi removido definitivamente porque o Umami 3.2.0 não permite criar Goals filtrando propriedades de eventos. A propriedade `channel` também foi removida: o próprio nome do evento identifica o canal.
 
+#### `whatsapp-click`
+
+Uso: rastrear cliques no canal profissional de WhatsApp.
+
+Propriedades:
+
+- `location`
+
+Valores esperados para `location`:
+
+- `contact`
+- `footer`, somente se o canal for adicionado ao rodapé em evolução futura.
+
+O evento representa clique para abrir o WhatsApp com mensagem inicial preenchida. Ele não confirma envio, leitura ou resposta da conversa.
+
 #### `curriculum-click`
 
 Uso: rastrear acesso ao currículo.
@@ -254,6 +269,7 @@ Não usar o título visual como chave analítica se `id` ou `slug` existir.
 
 - `curriculum-click`
 - `email-click`
+- `whatsapp-click`
 - `linkedin-click`
 - `github-click`
 - `project-repository-click`
@@ -279,6 +295,12 @@ As metas abaixo foram configuradas no painel do Umami após validação dos even
 
 Como o Umami 3.2.0 não permite Goals filtradas por propriedades de eventos, canais profissionais usam eventos específicos por canal.
 
+Meta adicional recomendada após a publicação do canal WhatsApp:
+
+| Meta | Evento | Filtro por propriedade | Significado | Limitação |
+| --- | --- | --- | --- | --- |
+| WhatsApp iniciado | `whatsapp-click` | Não aplicável | Visitante abriu o link para iniciar conversa no WhatsApp | Não confirma envio da mensagem, leitura ou contato efetivo |
+
 ## 11. Funis
 
 Os funis devem ser criados somente depois que houver volume suficiente de eventos para análise útil.
@@ -288,7 +310,7 @@ Os funis devem ser criados somente depois que houver volume suficiente de evento
 1. Pageview `/`
 2. `navigation-click` para `section=projects` ou `primary-cta-click` com `action=view-projects`
 3. `project-repository-click`
-4. `curriculum-click`, `linkedin-click`, `github-click` ou `email-click`
+4. `curriculum-click`, `linkedin-click`, `github-click`, `email-click` ou `whatsapp-click`
 
 ### Funil 2 — Conversão Direta
 
@@ -299,7 +321,7 @@ Os funis devem ser criados somente depois que houver volume suficiente de evento
 
 1. Pageview `/`
 2. `navigation-click` para `section=contact`
-3. `linkedin-click`, `github-click` ou `email-click`
+3. `linkedin-click`, `github-click`, `email-click` ou `whatsapp-click`
 
 ## 12. Dashboard
 
@@ -430,7 +452,7 @@ Fora de escopo:
 
 ### US-009.4 — Instrumentar Canais Profissionais
 
-Descrição: como recrutador ou gestor, ao clicar em LinkedIn, GitHub ou e-mail, essa intenção deve ser registrada de forma agregada.
+Descrição: como recrutador ou gestor, ao clicar em LinkedIn, GitHub, e-mail ou WhatsApp, essa intenção deve ser registrada de forma agregada.
 
 Valor: mostra quais canais geram maior interesse profissional.
 
@@ -439,6 +461,7 @@ Critérios de aceite:
 - LinkedIn usa `linkedin-click`;
 - GitHub usa `github-click`;
 - e-mail usa `email-click`;
+- WhatsApp usa `whatsapp-click`, quando o canal estiver publicado no produto;
 - `location` diferencia `hero`, `contact` e `footer`;
 - a propriedade `channel` não é enviada;
 - nenhum dado pessoal do visitante é enviado.
@@ -451,7 +474,7 @@ Fora de escopo:
 
 - confirmar mensagem enviada;
 - integrar CRM;
-- adicionar WhatsApp.
+- integrar API do WhatsApp.
 
 ### US-009.5 — Instrumentar Currículo
 
@@ -652,7 +675,8 @@ Fora de escopo:
 - Coleta de formulários.
 - CRM.
 - Automação de e-mail.
-- WhatsApp, caso não exista no produto.
+- WhatsApp Business API.
+- Webhook de WhatsApp.
 - Alterações visuais.
 - Criação de novas páginas de projeto.
 - Backend.
@@ -744,7 +768,7 @@ O épico foi concluído quando:
 - Script configurado: `https://analytics.wepdev.com.br/script.js`.
 - Website ID configurado: `79867cd5-31c2-4a41-8c7f-f69507a2e9af`.
 - Core Web Vitals habilitados por `data-performance="true"`.
-- Eventos finais adotados: `linkedin-click`, `github-click`, `email-click`, `curriculum-click`, `project-repository-click`, `navigation-click` e `primary-cta-click`.
+- Eventos finais adotados: `linkedin-click`, `github-click`, `email-click`, `whatsapp-click`, `curriculum-click`, `project-repository-click`, `navigation-click` e `primary-cta-click`.
 - Evento `professional-channel-click` removido definitivamente.
 - Propriedade `channel` removida da taxonomia e dos atributos analíticos.
 - Eventos testados em produção no site público `https://wepdev.com.br`.

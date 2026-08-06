@@ -28,7 +28,7 @@ type PropriedadesBotao = PropriedadesBotaoComoLink | PropriedadesBotaoComoBotao;
 
 const classesPorVariante: Record<VarianteBotao, string> = {
   primario:
-    "border border-primary/70 bg-primary text-primary-foreground shadow-[0_0_34px_rgb(56_189_248_/_20%)] hover:-translate-y-0.5 hover:border-primary-hover hover:bg-primary-hover hover:shadow-[0_0_42px_rgb(56_189_248_/_28%)] focus-visible:outline-primary",
+    "border border-primary/70 bg-primary text-primary-foreground shadow-glow-subtle hover:-translate-y-0.5 hover:border-primary-hover hover:bg-primary-hover hover:shadow-glow focus-visible:outline-primary",
   secundario:
     "border border-border bg-surface/70 text-foreground shadow-[inset_0_1px_0_rgb(255_255_255_/_5%)] hover:-translate-y-0.5 hover:border-primary/55 hover:bg-surface-elevated hover:text-primary-hover focus-visible:outline-primary",
   texto:
