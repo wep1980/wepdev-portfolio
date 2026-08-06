@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060816;
-  --background-secondary: #0b1120;
-  --surface: #111827;
-  --surface-elevated: #172033;
-  --surface-hover: #172033;
-  --foreground: #f8fafc;
-  --muted: #94a3b8;
-  --subtle: #64748b;
-  --border: #243047;
-  --border-accent: #38bdf8;
-  --primary: #38bdf8;
-  --primary-hover: #7dd3fc;
-  --primary-foreground: #06121f;
-  --accent: #8b5cf6;
-  --accent-light: #a78bfa;
-  --accent-gold: #d6b25e;
+  --background: #000000;
+  --background-secondary: #050814;
+  --surface: #0a1222;
+  --surface-elevated: #14213d;
+  --surface-hover: #1b2e55;
+  --foreground: #ffffff;
+  --muted: #e5e5e5;
+  --subtle: #a3a3a3;
+  --border: #1f2e4c;
+  --border-accent: #fca311;
+  --primary: #fca311;
+  --primary-hover: #ffbd4a;
+  --primary-foreground: #000000;
+  --accent: #fca311;
+  --accent-light: #ffd48a;
+  --accent-gold: #fca311;
   --success: #22c55e;
-  --warning: #d6b25e;
-  --error: #8b5cf6;
+  --warning: #fca311;
+  --error: #ef4444;
 
   --font-family-heading: var(--fonte-principal), Arial, Helvetica, sans-serif;
   --font-family-body: var(--fonte-principal), Arial, Helvetica, sans-serif;
@@ -34,15 +34,15 @@
   --shadow-sm: 0 4px 12px rgb(0 0 0 / 18%);
   --shadow-md: 0 12px 28px rgb(0 0 0 / 24%);
   --shadow-lg: 0 20px 48px rgb(0 0 0 / 32%);
-  --shadow-glow: 0 0 32px rgb(56 189 248 / 22%);
-  --shadow-glow-subtle: 0 0 40px rgb(56 189 248 / 14%);
+  --shadow-glow: 0 0 32px rgb(252 163 17 / 20%);
+  --shadow-glow-subtle: 0 0 40px rgb(252 163 17 / 12%);
 
-  --gradient-brand: linear-gradient(90deg, var(--primary), var(--accent));
+  --gradient-brand: linear-gradient(90deg, var(--primary), var(--primary-hover));
   --gradient-surface: linear-gradient(145deg, var(--surface), var(--surface-elevated));
   --gradient-glow:
-    radial-gradient(circle at 12% 10%, rgb(56 189 248 / 20%), transparent 24rem),
-    radial-gradient(circle at 88% 14%, rgb(139 92 246 / 18%), transparent 23rem),
-    radial-gradient(circle at 22% 34rem, rgb(56 189 248 / 8%), transparent 30rem);
+    radial-gradient(circle at 12% 10%, rgb(252 163 17 / 15%), transparent 24rem),
+    radial-gradient(circle at 88% 14%, rgb(20 33 61 / 78%), transparent 23rem),
+    radial-gradient(circle at 22% 34rem, rgb(252 163 17 / 7%), transparent 30rem);
 
   --duration-fast: 120ms;
   --duration-normal: 200ms;
@@ -110,8 +110,8 @@
   --shadow-sm: 0 4px 12px rgb(0 0 0 / 18%);
   --shadow-md: 0 12px 28px rgb(0 0 0 / 24%);
   --shadow-lg: 0 20px 48px rgb(0 0 0 / 32%);
-  --shadow-glow: 0 0 32px rgb(56 189 248 / 22%);
-  --shadow-glow-subtle: 0 0 40px rgb(56 189 248 / 14%);
+  --shadow-glow: 0 0 32px rgb(252 163 17 / 20%);
+  --shadow-glow-subtle: 0 0 40px rgb(252 163 17 / 12%);
 }
 
 * {
@@ -120,6 +120,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+:where(section[id]) {
+  scroll-margin-top: 6rem;
 }
 
 body {
@@ -141,8 +145,8 @@ body::before {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(rgb(148 163 184 / 8%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(148 163 184 / 8%) 1px, transparent 1px);
+    linear-gradient(rgb(229 229 229 / 6%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(229 229 229 / 6%) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, rgb(0 0 0 / 80%), transparent 78%);
 }
@@ -154,8 +158,8 @@ body::after {
   pointer-events: none;
   content: "";
   background:
-    radial-gradient(circle at 5% 34%, rgb(56 189 248 / 12%), transparent 17rem),
-    radial-gradient(circle at 94% 38%, rgb(139 92 246 / 12%), transparent 18rem);
+    radial-gradient(circle at 5% 34%, rgb(252 163 17 / 8%), transparent 17rem),
+    radial-gradient(circle at 94% 38%, rgb(20 33 61 / 55%), transparent 18rem);
 }
 
 a {
