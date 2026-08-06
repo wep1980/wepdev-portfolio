@@ -33,7 +33,7 @@ function LinkNavegacaoV3({
   href,
   rotulo,
   secao,
-}: (typeof linksNavegacaoV3)[number]) {
+}: Omit<(typeof linksNavegacaoV3)[number], "href"> & { href: string }) {
   return (
     <a
       href={href}
@@ -45,14 +45,18 @@ function LinkNavegacaoV3({
   );
 }
 
-export function NavbarV3() {
+export function NavbarV3({ basePath = "" }: { basePath?: string }) {
   const whatsapp = obterCanalProfissional("whatsapp");
+  const links = linksNavegacaoV3.map((link) => ({
+    ...link,
+    href: `${basePath}${link.href}`,
+  }));
 
   return (
     <header className="sticky top-0 z-20 border-b border-border/70 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
       <Container className="flex min-h-20 items-center justify-between gap-4">
         <a
-          href="#inicio"
+          href={`${basePath}#inicio`}
           aria-label="WEPDev — Ir para o início"
           className="inline-flex min-h-12 shrink-0 items-center rounded-md font-mono text-[1.2rem] font-black leading-none tracking-[0.05em] text-foreground outline-none transition hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:text-[1.4rem]"
         >
@@ -64,7 +68,7 @@ export function NavbarV3() {
 
         <nav aria-label="Navegação da Home V3" className="hidden lg:block">
           <ul className="flex items-center gap-7">
-            {linksNavegacaoV3.map((link) => <li key={link.href}><LinkNavegacaoV3 {...link} /></li>)}
+            {links.map((link) => <li key={link.href}><LinkNavegacaoV3 {...link} /></li>)}
           </ul>
         </nav>
 
@@ -88,7 +92,7 @@ export function NavbarV3() {
           <div className="absolute right-0 top-[calc(100%+0.75rem)] w-[min(19rem,calc(100vw-2.5rem))] overflow-hidden rounded-lg border border-border bg-surface-elevated shadow-md">
             <nav aria-label="Navegação da Home V3 mobile">
               <ul className="p-2.5">
-                {linksNavegacaoV3.map((link) => (
+                {links.map((link) => (
                   <li key={link.href}><LinkNavegacaoV3 {...link} /></li>
                 ))}
                 <li className="mt-2 border-t border-border/80 pt-2">
