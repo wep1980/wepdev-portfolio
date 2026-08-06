@@ -1,4 +1,5 @@
 import { ProjectGalleryV3 } from "@/componentes/home/v3/projects/ProjectGalleryV3";
+import Link from "next/link";
 import type { ProjetoV3 } from "@/constantes/projetosV3";
 
 type PropriedadesProjectCardV3 = {
@@ -52,6 +53,15 @@ export function ProjectCardV3({
           <p className="mt-3 text-[0.72rem] font-medium text-muted">
             Estudo de caso em preparação
           </p>
+          <Link
+            href={`/projetos/${projeto.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 self-start border-b border-primary/70 py-1 text-sm font-semibold text-foreground outline-none transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
+          >
+            <span>Ver detalhes do projeto</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </article>
     </li>
