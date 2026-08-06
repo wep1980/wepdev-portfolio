@@ -1,4 +1,5 @@
 import { SectionHeader } from "@/componentes/shared/SectionHeader";
+import { Container } from "@/componentes/ui/Container";
 import {
   atributosCanalProfissionalAnalytics,
   atributosCurriculoAnalytics,
@@ -13,13 +14,14 @@ export function ContactV3() {
 
   return (
     <section id="contato" aria-labelledby="titulo-contato-v3">
-      <SectionHeader
-        label="Contato"
-        titulo="Vamos conversar sobre tecnologia e oportunidades?"
-        descricao="Estou disponível para conversar sobre backend Java, arquitetura, sistemas distribuídos e Inteligência Artificial aplicada à Engenharia de Software."
-        headingId="titulo-contato-v3"
-      />
-      <div className="mt-7 flex flex-wrap items-center gap-3">
+      <Container>
+        <SectionHeader
+          label="Contato"
+          titulo="Vamos conversar sobre tecnologia e oportunidades?"
+          descricao="Estou disponível para conversar sobre backend Java, arquitetura, sistemas distribuídos e Inteligência Artificial aplicada à Engenharia de Software."
+          headingId="titulo-contato-v3"
+        />
+        <div className="mt-7 flex flex-wrap items-center gap-3">
         <a
           href={whatsapp.href}
           target="_blank"
@@ -59,7 +61,8 @@ export function ContactV3() {
         >
           Currículo
         </a>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }
