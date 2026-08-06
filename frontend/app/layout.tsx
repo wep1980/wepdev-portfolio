@@ -51,6 +51,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${urlSiteOficial}/`,
   },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: `${urlSiteOficial}/`,
+    siteName: "WEPDEV Portfolio",
+    title: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
+    description:
+      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
+    description:
+      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+  },
   robots: {
     index: true,
     follow: true,

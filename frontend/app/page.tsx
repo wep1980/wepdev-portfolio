@@ -5,7 +5,7 @@ export default function PaginaInicial() {
   return (
     <>
       <NavbarV3 />
-      <main className="flex-1 overflow-hidden" aria-label="Home WEPDEV">
+      <main className="flex-1" aria-label="Home WEPDEV">
         <HomeV3 />
       </main>
     </>
