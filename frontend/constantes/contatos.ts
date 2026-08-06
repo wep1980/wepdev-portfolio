@@ -4,7 +4,7 @@ export const nomeProfissional = "Waldir Escouto Pereira";
 export const cargoProfissional = "Desenvolvedor Java Sênior";
 export const emailProfissional = "wepcienciadacomputacao@gmail.com";
 export const localizacaoPublica = "Rio de Janeiro, Brasil";
-export const urlCurriculo = "/waldir_escouto_pereira_cv.pdf";
+export const urlCurriculo = "/waldir_escouto_pereira_cv.pdf?v=3237264";
 export const telefoneWhatsapp = "5521990561880";
 export const mensagemInicialWhatsapp =
   "Olá, Waldir! Conheci seu trabalho pelo portfólio WEPDEV e gostaria de conversar sobre uma oportunidade profissional.";
