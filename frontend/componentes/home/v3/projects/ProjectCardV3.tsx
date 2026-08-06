@@ -1,25 +1,48 @@
-import { ProjectMockupV3 } from "@/componentes/home/v3/projects/ProjectMockupV3";
+import { ProjectGalleryV3 } from "@/componentes/home/v3/projects/ProjectGalleryV3";
 import type { ProjetoV3 } from "@/constantes/projetosV3";
 
 type PropriedadesProjectCardV3 = {
   projeto: ProjetoV3;
+  destaque?: boolean;
+  centralizarNoDesktop?: boolean;
 };
 
-export function ProjectCardV3({ projeto }: PropriedadesProjectCardV3) {
+export function ProjectCardV3({
+  projeto,
+  destaque = false,
+  centralizarNoDesktop = false,
+}: PropriedadesProjectCardV3) {
   return (
-    <li>
-      <article className="flex h-full flex-col overflow-hidden rounded-md border border-border bg-surface transition-[border-color,background-color] duration-200 hover:border-border-accent/45 hover:bg-surface-hover/20">
-        <ProjectMockupV3 variante={projeto.varianteVisual} />
-        <div className="flex flex-1 flex-col p-5 sm:p-6">
+    <li
+      className={[
+        destaque ? "md:col-span-2 lg:col-span-3" : "",
+        centralizarNoDesktop ? "lg:col-start-2" : "",
+      ].join(" ")}
+    >
+      <article
+        className={[
+          "flex h-full min-w-0 flex-col overflow-hidden rounded-md border border-border bg-surface",
+          destaque
+            ? "md:grid md:grid-cols-[1.25fr_1fr] lg:grid-cols-[1.45fr_1fr]"
+            : "",
+        ].join(" ")}
+      >
+        <ProjectGalleryV3 projeto={projeto.titulo} imagens={projeto.imagens} />
+        <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6">
           <div className="flex items-center justify-between gap-4">
             <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-primary">
               {projeto.categoria}
             </p>
-            <span className="font-mono text-[0.68rem] text-subtle">
+            <span className="whitespace-nowrap font-mono text-[0.68rem] font-semibold text-primary">
               {projeto.status}
             </span>
           </div>
-          <h3 className="mt-4 text-lg font-semibold leading-tight text-foreground sm:text-xl">
+          <h3
+            className={[
+              "mt-4 font-semibold leading-tight text-foreground",
+              destaque ? "text-xl sm:text-2xl lg:text-3xl" : "text-lg sm:text-xl",
+            ].join(" ")}
+          >
             {projeto.titulo}
           </h3>
           <p className="mt-2.5 text-sm leading-6 text-muted">{projeto.descricao}</p>

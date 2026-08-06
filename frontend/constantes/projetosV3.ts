@@ -21,6 +21,11 @@ export const variantesProjetoV3 = [
 
 export type VarianteProjetoV3 = (typeof variantesProjetoV3)[number];
 
+export type ImagemProjetoV3 = {
+  readonly src: string;
+  readonly alt: string;
+};
+
 export type ProjetoV3 = {
   readonly id: string;
   readonly titulo: string;
@@ -29,6 +34,7 @@ export type ProjetoV3 = {
   readonly tecnologias: readonly string[];
   readonly status: typeof statusProjetoV3;
   readonly varianteVisual: VarianteProjetoV3;
+  readonly imagens: readonly ImagemProjetoV3[];
 };
 
 export const projetosV3: readonly ProjetoV3[] = [
@@ -41,6 +47,11 @@ export const projetosV3: readonly ProjetoV3[] = [
     tecnologias: ["OpenAI", "Ollama", "RAG", "Agentes", "Java"],
     status: statusProjetoV3,
     varianteVisual: "ia",
+    imagens: [
+      { src: "/projetos/assistente-ia/01.svg", alt: "Visão geral conceitual do assistente corporativo com IA" },
+      { src: "/projetos/assistente-ia/02.svg", alt: "Conversa conceitual com resposta fundamentada e fontes" },
+      { src: "/projetos/assistente-ia/03.svg", alt: "Painel conceitual de administração da base de conhecimento" },
+    ],
   },
   {
     id: "plataforma-microsservicos-v3",
@@ -51,6 +62,11 @@ export const projetosV3: readonly ProjetoV3[] = [
     tecnologias: ["Java", "Spring Boot", "Kafka", "Kubernetes", "OpenTelemetry"],
     status: statusProjetoV3,
     varianteVisual: "microsservicos",
+    imagens: [
+      { src: "/projetos/microsservicos/01.svg", alt: "Arquitetura conceitual da plataforma de microsserviços" },
+      { src: "/projetos/microsservicos/02.svg", alt: "Fluxo conceitual de requisição entre serviços" },
+      { src: "/projetos/microsservicos/03.svg", alt: "Estado conceitual dos serviços distribuídos" },
+    ],
   },
   {
     id: "dashboard-administrativo-react",
@@ -61,6 +77,11 @@ export const projetosV3: readonly ProjetoV3[] = [
     tecnologias: ["React", "TypeScript", "APIs REST", "Java"],
     status: statusProjetoV3,
     varianteVisual: "react",
+    imagens: [
+      { src: "/projetos/dashboard-react/01.svg", alt: "Visão executiva conceitual do dashboard React" },
+      { src: "/projetos/dashboard-react/02.svg", alt: "Tabela conceitual de pedidos do dashboard React" },
+      { src: "/projetos/dashboard-react/03.svg", alt: "Relatórios conceituais do dashboard React" },
+    ],
   },
   {
     id: "portal-corporativo-angular",
@@ -71,6 +92,11 @@ export const projetosV3: readonly ProjetoV3[] = [
     tecnologias: ["Angular", "TypeScript", "APIs REST", "Controle de acesso"],
     status: statusProjetoV3,
     varianteVisual: "angular",
+    imagens: [
+      { src: "/projetos/portal-angular/01.svg", alt: "Portal inicial conceitual em Angular" },
+      { src: "/projetos/portal-angular/02.svg", alt: "Fluxo conceitual de aprovação do portal Angular" },
+      { src: "/projetos/portal-angular/03.svg", alt: "Gestão conceitual de solicitações no portal Angular" },
+    ],
   },
   {
     id: "aplicativo-mobile-react-native",
@@ -81,6 +107,11 @@ export const projetosV3: readonly ProjetoV3[] = [
     tecnologias: ["React Native", "TypeScript", "Autenticação", "Backend"],
     status: statusProjetoV3,
     varianteVisual: "mobile",
+    imagens: [
+      { src: "/projetos/aplicativo-mobile/01.svg", alt: "Tela conceitual de acesso do aplicativo mobile" },
+      { src: "/projetos/aplicativo-mobile/02.svg", alt: "Home conceitual do aplicativo mobile" },
+      { src: "/projetos/aplicativo-mobile/03.svg", alt: "Telas conceituais de detalhes e perfil do aplicativo mobile" },
+    ],
   },
   {
     id: "plataforma-observabilidade",
@@ -91,5 +122,10 @@ export const projetosV3: readonly ProjetoV3[] = [
     tecnologias: ["OpenTelemetry", "Prometheus", "Grafana", "Logs", "Traces"],
     status: statusProjetoV3,
     varianteVisual: "observabilidade",
+    imagens: [
+      { src: "/projetos/observabilidade/01.svg", alt: "Métricas conceituais da plataforma de observabilidade" },
+      { src: "/projetos/observabilidade/02.svg", alt: "Logs e alertas conceituais da plataforma de observabilidade" },
+      { src: "/projetos/observabilidade/03.svg", alt: "Traces e dependências conceituais da plataforma de observabilidade" },
+    ],
   },
 ];
