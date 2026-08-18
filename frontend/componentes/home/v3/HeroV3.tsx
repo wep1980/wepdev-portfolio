@@ -1,3 +1,4 @@
+import { GradeHolofoteV3 } from "@/componentes/home/v3/hero/GradeHolofoteV3";
 import { PainelFocoTecnicoV3 } from "@/componentes/home/v3/hero/PainelFocoTecnicoV3";
 import { Botao } from "@/componentes/ui/Botao";
 import { Container } from "@/componentes/ui/Container";
@@ -18,14 +19,19 @@ export function HeroV3() {
   const github = obterCanalProfissional("github");
   const whatsapp = obterCanalProfissional("whatsapp");
 
+  const partesNome = nomeProfissional.split(" ");
+  const sobrenome = partesNome.pop();
+  const primeiroENome = partesNome.join(" ");
+
   return (
     <section
       id="inicio"
       aria-labelledby="titulo-hero-v3"
       className="relative isolate flex min-h-[calc(92vh-4.5rem)] items-center overflow-hidden py-16 sm:py-20 lg:py-24"
     >
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_28%,rgb(20_33_61_/_58%),transparent_32rem)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_28%,rgb(13_20_27_/_58%),transparent_32rem)]" />
       <div aria-hidden="true" className="absolute left-0 top-1/3 -z-10 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
+      <GradeHolofoteV3 />
 
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(18rem,1fr)] lg:gap-20">
@@ -39,8 +45,8 @@ export function HeroV3() {
               Backend Enterprise · Full Stack · Arquitetura · IA aplicada
             </p>
 
-            <h1 id="titulo-hero-v3" className="mt-5 max-w-4xl text-5xl font-semibold leading-[1.02] text-foreground sm:text-[4.25rem] lg:text-[5.25rem]">
-              {nomeProfissional}
+            <h1 id="titulo-hero-v3" className="mt-5 max-w-4xl text-5xl font-normal leading-[1.02] text-foreground sm:text-[4.25rem] lg:text-[5.25rem]">
+              {primeiroENome} <span className="text-primary">{sobrenome}</span>
             </h1>
 
             <p className="mt-6 text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
