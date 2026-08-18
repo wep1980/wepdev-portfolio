@@ -1,22 +1,37 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { urlSiteOficial } from "@/constantes/site";
 import "./globals.css";
 
-const fontePrincipal = Geist({
+const fontePrincipal = IBM_Plex_Sans({
   variable: "--fonte-principal",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const fonteCodigo = Geist_Mono({
+const fonteCodigo = JetBrains_Mono({
   variable: "--fonte-codigo",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(urlSiteOficial),
   applicationName: "WEPDEV Portfolio",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "256x256", type: "image/x-icon" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "WEPDEV",
+    statusBarStyle: "black-translucent",
+  },
   title: {
     default: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
     template: "%s | WEPDEV Portfolio",
@@ -70,6 +85,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#04080C",
+  colorScheme: "dark",
 };
 
 export default function LayoutRaiz({
