@@ -1,5 +1,6 @@
 import { SectionHeader } from "@/componentes/shared/SectionHeader";
 import { Container } from "@/componentes/ui/Container";
+import { IconeWhatsApp } from "@/componentes/ui/IconeWhatsApp";
 import {
   atributosCanalProfissionalAnalytics,
   atributosCurriculoAnalytics,
@@ -29,10 +30,8 @@ export function ContactV3() {
           {...atributosCanalProfissionalAnalytics("whatsapp", "contact")}
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground outline-none transition duration-200 active:translate-y-px hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
         >
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-5">
-            <path d="M6.8 18.2 4 20l.8-3.2A8 8 0 1 1 12 20a8.7 8.7 0 0 1-5.2-1.8Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
-          </svg>
-          Chamar no WhatsApp
+          <IconeWhatsApp className="size-5" />
+          WhatsApp
         </a>
         <a
           href={linkedin.href}
