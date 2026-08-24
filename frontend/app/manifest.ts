@@ -5,12 +5,12 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "WEPDEV Portfolio",
     short_name: "WEPDEV",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, Desenvolvedor Java Sênior | Full Stack.",
+      "Portfólio profissional de Waldir Escouto Pereira, Desenvolvedor Java Full Stack Sênior.",
     start_url: "/",
     scope: "/",
     display: "standalone",
-    background_color: "#04080C",
-    theme_color: "#04080C",
+    background_color: "#f7f5f1",
+    theme_color: "#f7f5f1",
     lang: "pt-BR",
     icons: [
       {

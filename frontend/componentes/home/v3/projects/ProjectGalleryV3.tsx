@@ -9,6 +9,7 @@ type PropriedadesProjectGalleryV3 = {
   imagens: readonly ImagemProjetoV3[];
   ampla?: boolean;
   mostrarAmpliar?: boolean;
+  rotuloImagem?: string;
 };
 
 export function ProjectGalleryV3({
@@ -16,6 +17,7 @@ export function ProjectGalleryV3({
   imagens,
   ampla = false,
   mostrarAmpliar = true,
+  rotuloImagem = "Interface conceitual",
 }: PropriedadesProjectGalleryV3) {
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [lightboxAberto, setLightboxAberto] = useState(false);
@@ -101,7 +103,7 @@ export function ProjectGalleryV3({
       className="min-w-0 bg-background-secondary"
       onKeyDown={lidarComTeclado}
       tabIndex={0}
-      aria-label={`Galeria conceitual do projeto ${projeto}`}
+      aria-label={`Galeria do projeto ${projeto}`}
     >
       <div className="relative">
         <button
@@ -117,10 +119,10 @@ export function ProjectGalleryV3({
             width={1200}
             height={720}
             sizes={ampla ? "(min-width: 1024px) 75vw, 100vw" : "(min-width: 1024px) 55vw, 100vw"}
-            className="h-full w-full object-cover transition-opacity duration-200 motion-reduce:transition-none"
+            className="h-full w-full object-contain transition-opacity duration-200 motion-reduce:transition-none"
           />
           <span className="pointer-events-none absolute bottom-3 left-3 border border-white/20 bg-black/60 px-2 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-white/80">
-            Interface conceitual
+            {rotuloImagem}
           </span>
         </button>
         {mostrarAmpliar ? (
@@ -136,11 +138,19 @@ export function ProjectGalleryV3({
         ) : null}
       </div>
 
-      <div className="flex items-center justify-between gap-3 border-t border-border/80 px-4 py-3">
+      <div
+        className={[
+          "flex items-center justify-between gap-3 border-t px-4 py-3",
+          mostrarAmpliar ? "border-border/80" : "border-card-dark-border",
+        ].join(" ")}
+      >
         <button
           type="button"
           onClick={voltar}
-          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border border-border text-lg text-muted outline-none transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className={[
+            "inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border text-lg outline-none transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+            mostrarAmpliar ? "border-border text-muted" : "border-card-dark-border text-card-dark-muted",
+          ].join(" ")}
           aria-label={`Imagem anterior do projeto ${projeto}`}
         >
           <span aria-hidden="true">←</span>
@@ -174,7 +184,10 @@ export function ProjectGalleryV3({
         <button
           type="button"
           onClick={avancar}
-          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border border-border text-lg text-muted outline-none transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className={[
+            "inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border text-lg outline-none transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+            mostrarAmpliar ? "border-border text-muted" : "border-card-dark-border text-card-dark-muted",
+          ].join(" ")}
           aria-label={`Próxima imagem do projeto ${projeto}`}
         >
           <span aria-hidden="true">→</span>
@@ -195,9 +208,9 @@ export function ProjectGalleryV3({
           }
         }}
         onKeyDown={lidarComTecladoDoLightbox}
-        className="m-auto max-h-[calc(100vh-1rem)] w-[calc(100vw-1rem)] max-w-[calc(100vw-1rem)] border border-border bg-background p-3 text-foreground backdrop:bg-black/85 sm:max-h-[88vh] sm:w-[82vw] sm:max-w-[82vw] sm:p-5"
+        className="hidden open:flex m-auto h-[calc(100vh-1rem)] w-[calc(100vw-1rem)] max-h-[calc(100vh-1rem)] max-w-[calc(100vw-1rem)] flex-col overflow-hidden border border-border bg-background p-3 text-foreground backdrop:bg-black/85 sm:h-[88vh] sm:max-h-[88vh] sm:w-[82vw] sm:max-w-[82vw] sm:p-5"
       >
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex shrink-0 items-center justify-between gap-4">
           <p className="font-mono text-xs text-muted">Imagem {indiceAtual + 1} de {quantidade}</p>
           <button
             data-lightbox-close
@@ -209,19 +222,20 @@ export function ProjectGalleryV3({
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <figure className="mt-3">
-          <Image
-            key={`lightbox-${imagemAtual.src}`}
-            src={imagemAtual.src}
-            alt={imagemAtual.alt}
-            width={1200}
-            height={720}
-            sizes="94vw"
-            className="max-h-[calc(100vh-9rem)] w-auto max-w-full object-contain sm:max-h-[calc(88vh-9rem)]"
-          />
-          <figcaption className="mt-3 text-sm leading-6 text-muted">{imagemAtual.alt}</figcaption>
+        <figure className="mt-3 flex min-h-0 flex-1 flex-col">
+          <div className="relative min-h-0 flex-1">
+            <Image
+              key={`lightbox-${imagemAtual.src}`}
+              src={imagemAtual.src}
+              alt={imagemAtual.alt}
+              fill
+              sizes="94vw"
+              className="object-contain"
+            />
+          </div>
+          <figcaption className="mt-3 shrink-0 text-sm leading-6 text-muted">{imagemAtual.alt}</figcaption>
         </figure>
-        <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="mt-4 flex shrink-0 items-center justify-between gap-3">
           <button
             type="button"
             onClick={voltar}
@@ -230,7 +244,7 @@ export function ProjectGalleryV3({
           >
             <span aria-hidden="true">←</span>
           </button>
-          <span className="font-mono text-xs text-subtle">Navegue pelas imagens do conceito</span>
+          <span className="font-mono text-xs text-subtle">Navegue pelas imagens</span>
           <button
             type="button"
             onClick={avancar}

@@ -1,112 +1,102 @@
-import { GradeHolofoteV3 } from "@/componentes/home/v3/hero/GradeHolofoteV3";
-import { PainelFocoTecnicoV3 } from "@/componentes/home/v3/hero/PainelFocoTecnicoV3";
-import { Botao } from "@/componentes/ui/Botao";
-import { Container } from "@/componentes/ui/Container";
+import Image from "next/image";
+import { FileDown, Mail, MapPin } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { NavegacaoLateralV3 } from "@/componentes/home/v3/NavegacaoLateralV3";
+import { IconeWhatsApp } from "@/componentes/ui/IconeWhatsApp";
 import {
   atributosCanalProfissionalAnalytics,
-  atributosCtaPrimarioAnalytics,
   atributosCurriculoAnalytics,
   locaisAnalytics,
 } from "@/constantes/analytics";
 import {
+  cargoProfissional,
+  localizacaoPublica,
   nomeProfissional,
   obterCanalProfissional,
 } from "@/constantes/contatos";
+
+const iconePorCanal = {
+  linkedin: FaLinkedin,
+  github: FaGithub,
+  email: Mail,
+  whatsapp: IconeWhatsApp,
+} as const;
+
+function IconeSocial({
+  tipo,
+  rotulo,
+  href,
+}: {
+  tipo: keyof typeof iconePorCanal;
+  rotulo: string;
+  href: string;
+}) {
+  const Icone = iconePorCanal[tipo];
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={rotulo}
+      title={rotulo}
+      {...atributosCanalProfissionalAnalytics(tipo, locaisAnalytics.hero)}
+      className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface text-foreground outline-none transition duration-200 active:translate-y-px hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+    >
+      <Icone className="size-[1.05rem]" aria-hidden="true" />
+    </a>
+  );
+}
 
 export function HeroV3() {
   const curriculo = obterCanalProfissional("curriculo");
   const linkedin = obterCanalProfissional("linkedin");
   const github = obterCanalProfissional("github");
+  const email = obterCanalProfissional("email");
   const whatsapp = obterCanalProfissional("whatsapp");
 
-  const partesNome = nomeProfissional.split(" ");
-  const sobrenome = partesNome.pop();
-  const primeiroENome = partesNome.join(" ");
-
   return (
-    <section
-      id="inicio"
-      aria-labelledby="titulo-hero-v3"
-      className="relative isolate flex min-h-[calc(92vh-4.5rem)] items-center overflow-hidden py-16 sm:py-20 lg:py-24"
-    >
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_28%,rgb(13_20_27_/_58%),transparent_32rem)]" />
-      <div aria-hidden="true" className="absolute left-0 top-1/3 -z-10 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
-      <GradeHolofoteV3 />
+    <div id="inicio" className="scroll-mt-28">
+      <span className="relative block size-48 shrink-0 transform overflow-hidden rounded-full transition-transform duration-300 lg:size-56 lg:hover:scale-105">
+        <Image
+          src="/waldir.jpg"
+          alt={`Foto de ${nomeProfissional}`}
+          fill
+          sizes="(min-width: 1024px) 224px, 192px"
+          priority
+          className="object-cover object-[center_25%]"
+        />
+      </span>
 
-      <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(18rem,1fr)] lg:gap-20">
-          <div className="max-w-4xl">
-            <p className="inline-flex min-h-9 items-center gap-3 rounded-md border border-success/30 bg-success/5 px-3 py-2 font-mono text-xs text-foreground">
-              <span aria-hidden="true" className="size-2 rounded-full bg-success" />
-              Disponível para novas oportunidades
-            </p>
+      <h1 className="mt-6 text-2xl font-bold leading-tight text-foreground sm:text-[1.75rem]">
+        {nomeProfissional}
+      </h1>
+      <p className="mt-1 text-base font-medium text-muted">{cargoProfissional}</p>
 
-            <p className="mt-7 max-w-2xl font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary sm:tracking-[0.16em]">
-              Backend Enterprise · Full Stack · Arquitetura · IA aplicada
-            </p>
+      <div className="mt-5 flex flex-wrap items-center gap-2.5">
+        <IconeSocial tipo="linkedin" rotulo="LinkedIn" href={linkedin.href} />
+        <IconeSocial tipo="github" rotulo="GitHub" href={github.href} />
+        <IconeSocial tipo="email" rotulo="E-mail" href={email.href} />
+        <IconeSocial tipo="whatsapp" rotulo="WhatsApp" href={whatsapp.href} />
 
-            <h1 id="titulo-hero-v3" className="mt-5 max-w-4xl text-5xl font-normal leading-[1.02] text-foreground sm:text-[4.25rem] lg:text-[5.25rem]">
-              {primeiroENome} <span className="text-primary">{sobrenome}</span>
-            </h1>
+        <a
+          href={curriculo.href}
+          download
+          aria-label="Baixar currículo de Waldir Escouto Pereira em PDF"
+          title="Baixar currículo (PDF)"
+          {...atributosCurriculoAnalytics(locaisAnalytics.hero)}
+          className="inline-flex size-10 items-center justify-center rounded-full border border-primary/40 bg-primary/5 text-primary outline-none transition duration-200 active:translate-y-px hover:-translate-y-0.5 hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        >
+          <FileDown className="size-[1.05rem]" aria-hidden="true" />
+        </a>
+      </div>
 
-            <p className="mt-6 text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
-              Desenvolvedor Java Sênior | Full Stack
-            </p>
+      <p className="mt-4 inline-flex items-center gap-1.5 text-sm text-muted">
+        <MapPin className="size-4 text-accent-verde" aria-hidden="true" />
+        {localizacaoPublica}
+      </p>
 
-            <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-foreground sm:mt-6 sm:text-xl">
-              Construo soluções completas para ambientes corporativos, unindo
-              backend Java, APIs, microsserviços, interfaces React e Angular,
-              cloud e Inteligência Artificial aplicada à Engenharia de Software.
-            </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Botao
-                href={curriculo.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                {...atributosCurriculoAnalytics(locaisAnalytics.hero)}
-                tamanho="grande"
-                className="shadow-none active:translate-y-px"
-                aria-label="Acessar currículo de Waldir Escouto Pereira em PDF"
-              >
-                Acessar currículo
-              </Botao>
-              <Botao
-                href="#projetos"
-                {...atributosCtaPrimarioAnalytics()}
-                variante="secundario"
-                tamanho="grande"
-                className="active:translate-y-px"
-                aria-label="Ver projetos da Home V3"
-              >
-                Ver projetos
-              </Botao>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-muted">
-              <a href={linkedin.href} target="_blank" rel="noopener noreferrer" {...atributosCanalProfissionalAnalytics("linkedin", locaisAnalytics.hero)} className="inline-flex min-h-11 items-center transition duration-200 active:translate-y-px hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">LinkedIn</a>
-              <a href={github.href} target="_blank" rel="noopener noreferrer" {...atributosCanalProfissionalAnalytics("github", locaisAnalytics.hero)} className="inline-flex min-h-11 items-center transition duration-200 active:translate-y-px hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">GitHub</a>
-              <a href={whatsapp.href} target="_blank" rel="noopener noreferrer" {...atributosCanalProfissionalAnalytics("whatsapp", locaisAnalytics.hero)} className="inline-flex min-h-11 items-center transition duration-200 active:translate-y-px hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">WhatsApp</a>
-            </div>
-
-            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-3 border-t border-border/80 pt-6" aria-label="Indicadores profissionais">
-              {[
-                "Java Backend",
-                "Sistemas Enterprise",
-                "Microsserviços",
-                "Cloud e DevOps",
-                "IA aplicada",
-              ].map((indicador) => (
-                <li key={indicador} className="font-mono text-xs text-subtle">
-                  {indicador}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <PainelFocoTecnicoV3 />
-        </div>
-      </Container>
-    </section>
+      <NavegacaoLateralV3 />
+    </div>
   );
 }

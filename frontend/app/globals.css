@@ -1,30 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #04080c;
-  --background-secondary: #0a1018;
-  --surface: #0d141b;
-  --surface-elevated: #131b24;
-  --surface-hover: #1a2530;
-  --foreground: #e8e6e5;
-  --muted: #8b8f94;
-  --subtle: #5b6169;
-  --border: #1f2a35;
-  --border-accent: #ffab1f;
-  --primary: #ffab1f;
-  --primary-hover: #ffc257;
-  --primary-foreground: #04080c;
-  --accent: #50a0f0;
-  --accent-light: #a4cdf8;
-  --accent-gold: #ffab1f;
-  --accent-verde: #6cb45c;
-  --accent-roxo: #dc78f8;
-  --accent-coral: #fc8060;
-  --sinal: #f09400;
-  --traco-forte: #232c36;
-  --success: #6cb45c;
-  --warning: #ece100;
-  --error: #fc8060;
+  --background: #f7f5f1;
+  --background-secondary: #f0eee8;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-hover: #f4f2ec;
+  --foreground: #17181a;
+  --muted: #55585f;
+  --subtle: #8a8d93;
+  --border: #e4e1d9;
+  --border-accent: #92400e;
+  --primary: #92400e;
+  --primary-hover: #7a3609;
+  --primary-foreground: #fdf8f0;
+  --accent: #1d6fb8;
+  --accent-light: #eaf3fc;
+  --accent-gold: #92400e;
+  --accent-verde: #3f8f34;
+  --accent-roxo: #8a3fbf;
+  --accent-coral: #c9502c;
+  --sinal: #92400e;
+  --success: #3f8f34;
+  --warning: #92720e;
+  --error: #c9502c;
+
+  --header-preto: #111113;
+  --header-preto-texto: #f7f5f1;
+
+  --card-escuro: #3f3f46;
+  --card-escuro-hover: #48484f;
+  --card-escuro-borda: rgb(255 255 255 / 8%);
+  --card-escuro-texto: #f4f4f5;
+  --card-escuro-texto-muted: rgb(255 255 255 / 62%);
+  --card-escuro-tag-bg: rgb(255 255 255 / 10%);
 
   --font-family-heading: var(--fonte-principal), Arial, Helvetica, sans-serif;
   --font-family-body: var(--fonte-principal), Arial, Helvetica, sans-serif;
@@ -36,18 +45,17 @@
   --radius-xl: 1.25rem;
   --radius-pill: 9999px;
 
-  --shadow-sm: 0 4px 12px rgb(0 0 0 / 18%);
-  --shadow-md: 0 12px 28px rgb(0 0 0 / 24%);
-  --shadow-lg: 0 20px 48px rgb(0 0 0 / 32%);
-  --shadow-glow: 0 0 32px rgb(255 171 31 / 20%);
-  --shadow-glow-subtle: 0 0 40px rgb(255 171 31 / 12%);
+  --shadow-sm: 0 1px 2px rgb(20 20 20 / 5%), 0 1px 3px rgb(20 20 20 / 6%);
+  --shadow-md: 0 10px 28px rgb(20 20 20 / 8%);
+  --shadow-lg: 0 24px 56px rgb(20 20 20 / 10%);
+  --shadow-glow: 0 0 28px rgb(146 64 14 / 14%);
+  --shadow-glow-subtle: 0 0 32px rgb(146 64 14 / 8%);
 
   --gradient-brand: linear-gradient(90deg, var(--primary), var(--primary-hover));
-  --gradient-surface: linear-gradient(145deg, var(--surface), var(--surface-elevated));
+  --gradient-surface: linear-gradient(145deg, var(--surface), var(--surface-hover));
   --gradient-glow:
-    radial-gradient(circle at 12% 10%, rgb(255 171 31 / 15%), transparent 24rem),
-    radial-gradient(circle at 88% 14%, rgb(13 20 27 / 78%), transparent 23rem),
-    radial-gradient(circle at 22% 34rem, rgb(255 171 31 / 7%), transparent 30rem);
+    radial-gradient(circle at 18% 6%, rgb(146 64 14 / 6%), transparent 26rem),
+    radial-gradient(circle at 86% 12%, rgb(29 111 184 / 5%), transparent 24rem);
 
   --duration-fast: 120ms;
   --duration-normal: 200ms;
@@ -74,7 +82,7 @@
   --raio-medio: 0.75rem;
   --raio-grande: 1rem;
 
-  --sombra-card: 0 24px 80px rgb(0 0 0 / 32%);
+  --sombra-card: 0 20px 56px rgb(20 20 20 / 8%);
   --sombra-brilho: var(--shadow-glow-subtle);
 }
 
@@ -106,11 +114,19 @@
   --color-error: var(--error);
   --color-sinal: var(--sinal);
 
+  --color-header: var(--header-preto);
+  --color-header-foreground: var(--header-preto-texto);
+
+  --color-card-dark: var(--card-escuro);
+  --color-card-dark-hover: var(--card-escuro-hover);
+  --color-card-dark-border: var(--card-escuro-borda);
+  --color-card-dark-foreground: var(--card-escuro-texto);
+  --color-card-dark-muted: var(--card-escuro-texto-muted);
+  --color-card-dark-tag: var(--card-escuro-tag-bg);
+
   --font-sans: var(--fonte-principal);
   --font-heading: var(--fonte-principal);
   --font-mono: var(--fonte-codigo);
-
-  --animate-pisca: pisca 1060ms steps(1) infinite;
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -118,11 +134,11 @@
   --radius-xl: 1.25rem;
   --radius-pill: 9999px;
 
-  --shadow-sm: 0 4px 12px rgb(0 0 0 / 18%);
-  --shadow-md: 0 12px 28px rgb(0 0 0 / 24%);
-  --shadow-lg: 0 20px 48px rgb(0 0 0 / 32%);
-  --shadow-glow: 0 0 32px rgb(252 163 17 / 20%);
-  --shadow-glow-subtle: 0 0 40px rgb(252 163 17 / 12%);
+  --shadow-sm: 0 1px 2px rgb(20 20 20 / 5%), 0 1px 3px rgb(20 20 20 / 6%);
+  --shadow-md: 0 10px 28px rgb(20 20 20 / 8%);
+  --shadow-lg: 0 24px 56px rgb(20 20 20 / 10%);
+  --shadow-glow: 0 0 28px rgb(146 64 14 / 14%);
+  --shadow-glow-subtle: 0 0 32px rgb(146 64 14 / 8%);
 }
 
 @layer base {
@@ -135,7 +151,7 @@
   }
 
   :where(section[id]) {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 7.5rem;
   }
 
   body {
@@ -143,35 +159,9 @@
     isolation: isolate;
     min-height: 100vh;
     margin: 0;
-    background:
-      var(--gradient-glow),
-      linear-gradient(180deg, var(--cor-fundo), var(--cor-fundo-secundario));
+    background: var(--gradient-glow), var(--cor-fundo);
     color: var(--cor-texto-principal);
     font-family: var(--fonte-principal), Arial, Helvetica, sans-serif;
-  }
-
-  body::before {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background-image:
-      linear-gradient(rgb(229 229 229 / 6%) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(229 229 229 / 6%) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: linear-gradient(180deg, rgb(0 0 0 / 80%), transparent 78%);
-  }
-
-  body::after {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background:
-      radial-gradient(circle at 5% 34%, rgb(255 171 31 / 8%), transparent 17rem),
-      radial-gradient(circle at 94% 38%, rgb(13 20 27 / 55%), transparent 18rem);
   }
 
   a {
@@ -185,66 +175,64 @@
   }
 }
 
-.holofote__grade {
-  cursor: crosshair;
-  touch-action: none;
-}
-
-.holofote__celula {
-  position: absolute;
-  display: block;
-  border-radius: 3px;
-  opacity: 0.07;
-  will-change: transform, opacity;
-}
-
-.holofote__guia {
-  position: absolute;
-  background-color: var(--traco-forte);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--duration-normal) var(--easing-standard);
-}
-
-.holofote__guia--h {
-  left: -16px;
-  right: -16px;
-  top: 0;
-  height: 1px;
-}
-
-.holofote__guia--v {
-  top: -16px;
-  bottom: -16px;
-  left: 0;
-  width: 1px;
-}
-
-.holofote__alvo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid var(--sinal);
-  border-radius: 5px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--duration-normal) var(--easing-standard);
-}
-
 ::selection {
   background: var(--cor-destaque);
   color: var(--cor-destaque-texto);
 }
 
-@keyframes pisca {
-  0%, 49% {
-    opacity: 1;
+.efeito-maquina-escrever {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.efeito-maquina-escrever::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--header-preto);
+  animation: 3.6s steps(33) 0s 1 normal forwards running maquina-escrever;
+}
+
+.efeito-maquina-escrever::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0.125em;
+  background: var(--header-preto-texto);
+  animation:
+    3.6s steps(33) 0s 1 normal forwards running maquina-escrever,
+    1s steps(33) 3.6s infinite normal none running cursor-pisca;
+}
+
+@keyframes maquina-escrever {
+  100% {
+    left: 100%;
   }
-  50%, 100% {
+}
+
+@keyframes cursor-pisca {
+  0% {
     opacity: 0;
   }
+  0.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  50.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hobby-carousel-mask {
+  mask-image: linear-gradient(90deg, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 4%, black 96%, transparent 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -255,8 +243,13 @@
     transition-duration: 0.01ms !important;
   }
 
-  .animate-pisca {
+  .efeito-maquina-escrever::before {
     animation: none !important;
-    opacity: 1 !important;
+    left: 100% !important;
+  }
+
+  .efeito-maquina-escrever::after {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }

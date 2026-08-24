@@ -7,14 +7,9 @@ type PropriedadesProjectGridV3 = {
 
 export function ProjectGridV3({ projetos }: PropriedadesProjectGridV3) {
   return (
-    <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {projetos.map((projeto, indice) => (
-        <ProjectCardV3
-          key={projeto.id}
-          projeto={projeto}
-          destaque={indice === 0}
-          centralizarNoDesktop={indice === projetos.length - 2}
-        />
+    <ul className="grid gap-6 sm:grid-cols-2">
+      {projetos.map((projeto) => (
+        <ProjectCardV3 key={projeto.id} projeto={projeto} />
       ))}
     </ul>
   );

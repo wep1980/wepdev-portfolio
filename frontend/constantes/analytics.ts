@@ -17,14 +17,19 @@ export const locaisAnalytics = {
   contato: "contact",
   rodape: "footer",
   projetos: "projects",
+  curriculo: "resume",
 } as const;
 
 export const secoesAnalytics = {
   inicio: "home",
-  tecnologias: "technologies",
   sobre: "about",
   experiencia: "experience",
   projetos: "projects",
+  curriculo: "resume",
+  educacao: "education",
+  tecnologias: "technologies",
+  estudos: "continuous-studies",
+  hobbies: "hobbies",
   contato: "contact",
 } as const;
 
@@ -81,7 +86,7 @@ export function atributosCanalProfissionalAnalytics(
 }
 
 export function atributosCurriculoAnalytics(
-  location: Extract<LocalAnalytics, "hero" | "contact" | "footer">,
+  location: Extract<LocalAnalytics, "hero" | "contact" | "footer" | "resume">,
 ) {
   return {
     "data-umami-event": eventosAnalytics.curriculo,

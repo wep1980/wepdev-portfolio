@@ -1,10 +1,10 @@
 import type { CanalProfissional } from "@/dominio/contato/CanalProfissional";
 
 export const nomeProfissional = "Waldir Escouto Pereira";
-export const cargoProfissional = "Desenvolvedor Java Sênior";
+export const cargoProfissional = "Engenheiro de Software Sênior | IA Aplicada & Java Full Stack";
 export const emailProfissional = "wepcienciadacomputacao@gmail.com";
 export const localizacaoPublica = "Rio de Janeiro, Brasil";
-export const urlCurriculo = "/waldir_escouto_pereira_cv.pdf?v=5777240";
+export const urlCurriculo = "/waldir_escouto_pereira_cv.pdf?v=5947103";
 export const telefoneWhatsapp = "5521990561880";
 export const mensagemInicialWhatsapp =
   "Olá, Waldir! Conheci seu trabalho pelo portfólio WEPDEV e gostaria de conversar sobre uma oportunidade profissional.";

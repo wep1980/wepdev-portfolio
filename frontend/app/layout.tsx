@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   title: {
-    default: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
+    default: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
     template: "%s | WEPDEV Portfolio",
   },
   description:
-    "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+    "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   authors: [
     {
       name: "Waldir Escouto Pereira",
@@ -71,15 +71,15 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: `${urlSiteOficial}/`,
     siteName: "WEPDEV Portfolio",
-    title: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
+    title: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   twitter: {
     card: "summary",
-    title: "Waldir Escouto Pereira | Desenvolvedor Java Sênior",
+    title: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   robots: {
     index: true,
@@ -88,8 +88,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04080C",
-  colorScheme: "dark",
+  themeColor: "#f7f5f1",
+  colorScheme: "light",
 };
 
 export default function LayoutRaiz({

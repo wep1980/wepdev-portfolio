@@ -5,50 +5,13 @@ export const categoriasProjetosV3 = [
   "Mobile",
   "IA",
   "Microsserviços",
-  "DevOps",
 ] as const;
 
-export const statusProjetoV3 = "Projeto conceitual" as const;
-
-export const variantesProjetoV3 = [
-  "ia",
-  "microsservicos",
-  "react",
-  "angular",
-  "mobile",
-  "observabilidade",
-] as const;
-
-export type VarianteProjetoV3 = (typeof variantesProjetoV3)[number];
+export const statusProjetoRealV3 = "Projeto real" as const;
 
 export type ImagemProjetoV3 = {
   readonly src: string;
   readonly alt: string;
-};
-
-export type ArquiteturaProjetoV3 = {
-  readonly resumo: string;
-  readonly componentes: readonly string[];
-};
-
-export type FaseRoadmapProjetoV3 = {
-  readonly fase: string;
-  readonly titulo: string;
-  readonly itens: readonly string[];
-};
-
-export type DetalhesProjetoV3 = {
-  readonly problema: string;
-  readonly proposta: string;
-  readonly publicoAlvo: readonly string[];
-  readonly funcionalidadesPrevistas: readonly string[];
-  readonly arquitetura: ArquiteturaProjetoV3;
-  readonly decisoesTecnicas: readonly string[];
-  readonly segurancaPrevista: readonly string[];
-  readonly observabilidadePrevista: readonly string[];
-  readonly desafiosEsperados: readonly string[];
-  readonly roadmap: readonly FaseRoadmapProjetoV3[];
-  readonly avisoConceitual: string;
 };
 
 export type ProjetoV3 = {
@@ -60,250 +23,179 @@ export type ProjetoV3 = {
   readonly resumo: string;
   readonly slug: string;
   readonly tecnologias: readonly string[];
-  readonly status: typeof statusProjetoV3;
-  readonly varianteVisual: VarianteProjetoV3;
+  readonly status: string;
+  readonly destaquesTecnicos: readonly string[];
+  readonly problemasResolvidos: readonly string[];
+  readonly tags: readonly string[];
+  readonly notaFinal: string;
   readonly imagens: readonly ImagemProjetoV3[];
-} & DetalhesProjetoV3;
-
-const avisoConceitual =
-  "Este projeto representa uma solução planejada. A implementação, o repositório e a demonstração pública serão adicionados conforme o desenvolvimento avançar.";
-
-const detalhesProjetosV3: Record<VarianteProjetoV3, DetalhesProjetoV3> = {
-  ia: {
-    problema: "Conhecimento corporativo disperso, documentação difícil de localizar, repetição de perguntas e baixa rastreabilidade de fontes.",
-    proposta: "Um assistente Full Stack conceitual com backend Java, RAG, integração com Ollama, OpenAI opcional, interface moderna, histórico e respostas fundamentadas.",
-    publicoAlvo: ["Equipes corporativas", "Áreas de operação", "Times que consultam documentação interna"],
-    funcionalidadesPrevistas: ["Perguntas em linguagem natural", "Respostas com fontes consultadas", "Histórico de conversas", "Avaliação de respostas"],
-    arquitetura: {
-      resumo: "A solução seria organizada em camadas para separar interface, recuperação de conhecimento, provedores de IA e persistência.",
-      componentes: ["Frontend", "API Java", "Autenticação", "Chat e documentos", "Recuperação vetorial", "Provedor de IA", "Banco relacional", "Observabilidade"],
-    },
-    decisoesTecnicas: ["Manter o backend Java como núcleo de integração", "Usar RAG para relacionar respostas às fontes", "Permitir provedor local ou externo de IA", "Separar ingestão, recuperação e geração"],
-    segurancaPrevista: ["Autenticação e autorização por contexto", "Proteção de documentos por permissão", "Registro de acesso às fontes", "Cuidados com dados enviados a provedores externos"],
-    observabilidadePrevista: ["Logs de consultas e falhas", "Métricas de ingestão", "Traces entre API, recuperação e provedor", "Alertas para indisponibilidade"],
-    desafiosEsperados: ["Qualidade e atualização da base", "Rastreabilidade das respostas", "Controle de custo e privacidade", "Avaliação de respostas geradas"],
-    roadmap: [
-      { fase: "Fase 1", titulo: "Base conversacional", itens: ["Contrato da API", "Fluxo inicial de conversa", "Modelo de autenticação"] },
-      { fase: "Fase 2", titulo: "Conhecimento fundamentado", itens: ["Ingestão de documentos", "Recuperação vetorial", "Citações de fontes"] },
-      { fase: "Fase 3", titulo: "Operação assistida", itens: ["Histórico", "Avaliação", "Observabilidade e controles"] },
-    ],
-    avisoConceitual,
-  },
-  microsservicos: {
-    problema: "Aplicações distribuídas precisam evoluir serviços independentes sem perder rastreabilidade, resiliência e clareza de responsabilidades.",
-    proposta: "Uma plataforma Full Stack conceitual com API Gateway, autenticação, serviços Java independentes, mensageria Kafka, persistência separada e observabilidade.",
-    publicoAlvo: ["Times de engenharia", "Produtos corporativos", "Sistemas com domínios desacoplados"],
-    funcionalidadesPrevistas: ["Entrada por API Gateway", "Serviços de pedidos, pagamentos e clientes", "Eventos assíncronos", "Acompanhamento de saúde dos serviços"],
-    arquitetura: {
-      resumo: "A arquitetura combina comunicação síncrona para consultas e eventos assíncronos para desacoplar fluxos de negócio.",
-      componentes: ["API Gateway", "Autenticação", "Serviços Java", "Kafka", "Persistência por serviço", "Containers", "Observabilidade"],
-    },
-    decisoesTecnicas: ["Separar responsabilidades por domínio", "Usar eventos quando o desacoplamento for relevante", "Manter contratos explícitos entre serviços", "Preparar execução em containers"],
-    segurancaPrevista: ["Autenticação no gateway", "Autorização por serviço", "Segredos fora do código", "Validação de contratos e entradas"],
-    observabilidadePrevista: ["Correlation ID", "Métricas de latência", "Logs estruturados", "Traces distribuídos e health checks"],
-    desafiosEsperados: ["Consistência entre serviços", "Falhas parciais", "Evolução de contratos", "Operação local e em cluster"],
-    roadmap: [
-      { fase: "Fase 1", titulo: "Base da plataforma", itens: ["Estrutura dos serviços", "Contratos iniciais", "Ambiente local"] },
-      { fase: "Fase 2", titulo: "Fluxos distribuídos", itens: ["Autenticação", "Eventos", "Persistência separada"] },
-      { fase: "Fase 3", titulo: "Operação", itens: ["Observabilidade", "Containers", "Kubernetes futuramente"] },
-    ],
-    avisoConceitual,
-  },
-  react: {
-    problema: "Equipes precisam consultar dados operacionais em interfaces claras, responsivas e conectadas a APIs de negócio.",
-    proposta: "Um dashboard React conceitual integrado a APIs Java, com indicadores, filtros, tabelas e relatórios sem apresentar os dados ilustrativos como resultados reais.",
-    publicoAlvo: ["Times operacionais", "Gestores de produto", "Usuários de sistemas administrativos"],
-    funcionalidadesPrevistas: ["Indicadores resumidos", "Filtros de período", "Tabelas de pedidos", "Relatórios conceituais", "Controle de acesso"],
-    arquitetura: {
-      resumo: "A interface consumiria APIs Java por contratos definidos, mantendo estado de tela separado das regras de negócio do backend.",
-      componentes: ["Aplicação React", "TypeScript", "Estado de filtros", "APIs REST Java", "Autenticação", "Camada de apresentação"],
-    },
-    decisoesTecnicas: ["Priorizar composição responsiva", "Manter dados e regras no backend", "Tratar estados de carregamento e erro", "Usar componentes acessíveis"],
-    segurancaPrevista: ["Sessão protegida", "Permissões por recurso", "Validação de entradas", "Não expor dados no cliente além do necessário"],
-    observabilidadePrevista: ["Erros de integração", "Métricas de carregamento", "Logs de falhas de API", "Acompanhamento de indisponibilidade"],
-    desafiosEsperados: ["Densidade de dados no mobile", "Estados de carregamento", "Paginação", "Consistência entre filtros e API"],
-    roadmap: [
-      { fase: "Fase 1", titulo: "Estrutura da interface", itens: ["Layout responsivo", "Navegação", "Estados de tela"] },
-      { fase: "Fase 2", titulo: "Dados e filtros", itens: ["Integração com API", "Filtros", "Tabelas"] },
-      { fase: "Fase 3", titulo: "Relatórios", itens: ["Visualizações", "Acessibilidade", "Testes de integração"] },
-    ],
-    avisoConceitual,
-  },
-  angular: {
-    problema: "Fluxos corporativos com solicitações e aprovações precisam de rastreabilidade, permissões claras e uma experiência consistente.",
-    proposta: "Um portal Angular conceitual integrado a microsserviços Java para organizar solicitações, aprovações, controle de acesso e auditoria de workflows.",
-    publicoAlvo: ["Colaboradores", "Aprovadores", "Áreas administrativas"],
-    funcionalidadesPrevistas: ["Abertura de solicitações", "Fluxo de aprovação", "Filtros e prioridades", "Controle de permissões", "Histórico de auditoria"],
-    arquitetura: {
-      resumo: "O portal seria uma camada de experiência sobre APIs e serviços de workflow, com regras de autorização mantidas no backend.",
-      componentes: ["Aplicação Angular", "TypeScript", "APIs REST", "Serviços Java", "Workflow", "Auditoria", "Controle de acesso"],
-    },
-    decisoesTecnicas: ["Separar apresentação e workflow", "Modelar estados explícitos da solicitação", "Tratar permissões no servidor", "Cobrir fluxos críticos com testes"],
-    segurancaPrevista: ["Autenticação", "Autorização por perfil", "Auditoria de transições", "Validação de dados recebidos"],
-    observabilidadePrevista: ["Logs de transição", "Métricas de erros de API", "Health checks", "Rastreabilidade de solicitações"],
-    desafiosEsperados: ["Regras de aprovação variáveis", "Permissões por contexto", "Histórico confiável", "Acessibilidade em tabelas e fluxos"],
-    roadmap: [
-      { fase: "Fase 1", titulo: "Portal base", itens: ["Navegação", "Autenticação", "Solicitações iniciais"] },
-      { fase: "Fase 2", titulo: "Workflow", itens: ["Aprovações", "Permissões", "Auditoria"] },
-      { fase: "Fase 3", titulo: "Qualidade", itens: ["Testes", "Acessibilidade", "Observabilidade"] },
-    ],
-    avisoConceitual,
-  },
-  mobile: {
-    problema: "Usuários precisam acessar fluxos e informações essenciais em uma experiência mobile consistente e conectada ao backend.",
-    proposta: "Um aplicativo React Native conceitual conectado a APIs REST Java, com autenticação, navegação, notificações e evolução futura para uso offline.",
-    publicoAlvo: ["Usuários em mobilidade", "Equipes de campo", "Colaboradores que acompanham solicitações"],
-    funcionalidadesPrevistas: ["Acesso autenticado", "Resumo de atividades", "Detalhes de solicitações", "Notificações", "Histórico"],
-    arquitetura: {
-      resumo: "O aplicativo consumiria APIs Java e manteria uma camada local mínima para sessão, navegação e eventual suporte offline.",
-      componentes: ["React Native", "TypeScript", "Navegação", "APIs REST Java", "Autenticação", "Notificações", "Armazenamento seguro"],
-    },
-    decisoesTecnicas: ["Compartilhar contratos com o backend", "Priorizar navegação simples", "Tratar conectividade instável", "Preparar testes em dispositivos"],
-    segurancaPrevista: ["Armazenamento seguro de sessão", "Expiração de credenciais", "Comunicação protegida", "Validação de notificações"],
-    observabilidadePrevista: ["Erros de rede", "Falhas de autenticação", "Health checks da API", "Registro de falhas não sensíveis"],
-    desafiosEsperados: ["Diferenças entre plataformas", "Conectividade", "Acessibilidade mobile", "Publicação futura e manutenção"],
-    roadmap: [
-      { fase: "Fase 1", titulo: "Experiência inicial", itens: ["Acesso", "Navegação", "Resumo"] },
-      { fase: "Fase 2", titulo: "Integração", itens: ["APIs Java", "Detalhes", "Notificações"] },
-      { fase: "Fase 3", titulo: "Evolução", itens: ["Offline futuro", "Testes", "Publicação futura"] },
-    ],
-    avisoConceitual,
-  },
-  observabilidade: {
-    problema: "Sistemas distribuídos precisam relacionar métricas, logs e traces para investigar falhas e compreender o comportamento das aplicações.",
-    proposta: "Uma plataforma conceitual para reunir sinais de observabilidade com OpenTelemetry, Prometheus e Grafana como tecnologia prevista para evolução.",
-    publicoAlvo: ["Times de plataforma", "Engenharia backend", "Equipes responsáveis por operação"],
-    funcionalidadesPrevistas: ["Métricas temporais", "Consulta de logs", "Traces distribuídos", "Alertas", "Mapa conceitual de dependências"],
-    arquitetura: {
-      resumo: "A plataforma conectaria instrumentação, coleta e visualização em uma camada dedicada à operação de aplicações distribuídas.",
-      componentes: ["OpenTelemetry", "Coletores", "Prometheus", "Grafana futuramente", "Logs", "Traces", "Alertas"],
-    },
-    decisoesTecnicas: ["Padronizar sinais com OpenTelemetry", "Correlacionar logs e traces", "Separar coleta e visualização", "Evoluir para SLI/SLO futuramente"],
-    segurancaPrevista: ["Remoção de dados sensíveis dos sinais", "Acesso controlado às consultas", "Retenção definida por tipo de dado", "Proteção dos endpoints de coleta"],
-    observabilidadePrevista: ["A própria plataforma terá health checks", "Métricas de coleta", "Alertas de indisponibilidade", "Rastreamento de falhas de pipeline"],
-    desafiosEsperados: ["Volume de sinais", "Cardinalidade", "Correlação entre fontes", "Definição de alertas úteis"],
-    roadmap: [
-      { fase: "Fase 1", titulo: "Sinais básicos", itens: ["Instrumentação", "Métricas", "Health checks"] },
-      { fase: "Fase 2", titulo: "Investigação", itens: ["Logs", "Traces", "Correlação"] },
-      { fase: "Fase 3", titulo: "Operação madura", itens: ["Alertas", "SLO futuro", "Painéis de evolução"] },
-    ],
-    avisoConceitual,
-  },
+  readonly repositorioUrl?: string;
 };
 
 export const projetosV3: readonly ProjetoV3[] = [
   {
-    id: "assistente-corporativo-ia",
-    slug: "assistente-corporativo-ia",
-    titulo: "Assistente Corporativo com IA",
-    resumo: "Assistente Full Stack conceitual para consultar conhecimento corporativo com respostas fundamentadas.",
+    id: "economix",
+    slug: "economix",
+    titulo: "Economix",
+    resumo:
+      "Plataforma real para comparar preços entre mercados, montar listas de compras e processar encartes com OCR.",
     descricao:
-      "Aplicação Full Stack conceitual com backend Java, frontend moderno e IA generativa para trabalhar com informações corporativas.",
-    categoria: "IA",
-    categorias: ["IA", "Backend", "Frontend"],
-    tecnologias: ["OpenAI", "Ollama", "RAG", "Agentes", "Java"],
-    status: statusProjetoV3,
-    varianteVisual: "ia",
-    ...detalhesProjetosV3.ia,
+      "Economix é uma plataforma full stack real para ajudar consumidores a economizar nas compras: compara preços entre mercados, monta listas de compras, calcula o custo estimado por loja e processa encartes públicos com OCR para transformar ofertas em dados estruturados e revisáveis.",
+    categoria: "Full Stack",
+    categorias: ["Backend", "Frontend", "Mobile", "IA"],
+    tecnologias: ["Java", "Spring Boot", "Angular", "React Native", "PostgreSQL", "Docker", "Ollama", "Playwright"],
+    status: statusProjetoRealV3,
+    destaquesTecnicos: [
+      "Arquitetura full stack moderna, com Java/Spring Boot no backend, Angular no web e React Native no mobile",
+      "Arquitetura em camadas, separando controllers, services, repositories, entidades, DTOs, segurança e integrações",
+      "Catálogo normalizado de produtos, permitindo comparar o mesmo produto entre diferentes lojas",
+      "Coleta automatizada de encartes, com fallback headless usando Playwright quando a coleta padrão falha",
+      "OCR de imagens, utilizando Tesseract para extrair produtos, preços e validade dos encartes",
+      "Revisão humana controlada, permitindo aprovar ou rejeitar candidatos OCR antes de gerar ofertas",
+      "Integração com Ollama, preparada para normalização e interpretação local dos dados",
+      "Comparação multi-loja, calculando menor preço, cobertura de ofertas e custo estimado",
+      "Otimização de compras, distribuindo itens entre lojas para reduzir o custo total",
+      "Histórico de preços, permitindo acompanhar variações ao longo do tempo",
+      "Segurança com JWT e API Keys, incluindo autorização por perfil e proteção de endpoints",
+      "PostgreSQL com Flyway, garantindo persistência estruturada e versionamento das migrações",
+      "Armazenamento de imagens com MinIO, incluindo retenção, auditoria e URLs de visualização protegidas",
+      "Frontend responsivo, com estados de carregamento, fallback demonstrativo e integração REST",
+      "Aplicativo mobile com Expo, compartilhando os mesmos contratos da API",
+      "Containerização com Docker, usando Nginx para servir o Angular e fazer proxy para o backend",
+      "Testes automatizados, com JUnit, Mockito, Testcontainers, Jasmine, Karma e Chrome Headless",
+      "Deploy operacional, com containers separados, rede Docker interna, health checks e infraestrutura Linux",
+    ],
+    problemasResolvidos: [
+      "Backend Java implementado e validado com 225 testes",
+      "Coleta padrão e fallback headless dos encartes implementados",
+      "OCR, revisão e geração de ofertas funcionando",
+      "Frontend Angular integrado à API",
+      "Mobile React Native com navegação e cliente REST",
+      "Frontend publicado em container no servidor",
+      "Comunicação frontend → backend validada",
+      "Configuração de domínio público para o frontend",
+      "Teste do mobile em um dispositivo físico via Expo Go",
+    ],
+    tags: ["Full Stack", "Java", "Angular", "React Native"],
+    repositorioUrl: "https://github.com/wep1980/wep-economix",
+    notaFinal:
+      "Projeto real, com backend validado por 225 testes automatizados e frontend web publicado em container. As imagens acima mostram um ambiente de demonstração com dados fictícios; o aplicativo mobile ainda está em teste local via Expo.",
     imagens: [
-      { src: "/projetos/assistente-ia/01.svg", alt: "Visão geral conceitual do assistente corporativo com IA" },
-      { src: "/projetos/assistente-ia/02.svg", alt: "Conversa conceitual com resposta fundamentada e fontes" },
-      { src: "/projetos/assistente-ia/03.svg", alt: "Painel conceitual de administração da base de conhecimento" },
+      { src: "/projetos/economix/01.png", alt: "Visão geral do Economix, com economia encontrada, ofertas ativas e atividade recente" },
+      { src: "/projetos/economix/02.png", alt: "Tela de ofertas do Economix, com filtros por produto, loja e preço máximo" },
+      { src: "/projetos/economix/03.png", alt: "Catálogo de produtos do Economix, com menor preço e ofertas ativas por item" },
+      { src: "/projetos/economix/04.png", alt: "Lojas e redes monitoradas pelo Economix, com cobertura de ofertas por região" },
+      { src: "/projetos/economix/05.png", alt: "Painel de coleta e encartes do Economix, acompanhando OCR e campanhas processadas" },
     ],
   },
   {
-    id: "plataforma-microsservicos-v3",
-    slug: "plataforma-microsservicos",
-    titulo: "Plataforma de Microsserviços",
-    resumo: "Plataforma backend Java conceitual para serviços distribuídos, eventos e observabilidade.",
+    id: "financas",
+    slug: "financas",
+    titulo: "Finanças",
+    resumo:
+      "Sistema real de finanças pessoais multi-usuário, com leitura automática de faturas e chat com IA sobre a própria situação financeira.",
     descricao:
-      "Arquitetura backend Java conceitual para aplicações Full Stack escaláveis, com mensageria, orquestração e observabilidade integrada.",
+      "Finanças é um sistema real de finanças pessoais multi-usuário construído em microsserviços: lê faturas de cartão em PDF e transforma em transações estruturadas automaticamente, e permite conversar em português com uma IA sobre a própria situação financeira, sempre com resposta rastreável a dado real, nunca inventada.",
     categoria: "Microsserviços",
-    categorias: ["Microsserviços", "Backend", "DevOps"],
-    tecnologias: ["Java", "Spring Boot", "Kafka", "Kubernetes", "OpenTelemetry"],
-    status: statusProjetoV3,
-    varianteVisual: "microsservicos",
-    ...detalhesProjetosV3.microsservicos,
+    categorias: ["Microsserviços", "Backend", "IA", "Frontend"],
+    tecnologias: [
+      "Java",
+      "Quarkus",
+      "Next.js",
+      "Apache Kafka",
+      "MySQL",
+      "MongoDB",
+      "Qdrant",
+      "Keycloak",
+      "Docker",
+      "Ollama",
+      "OpenAI",
+      "GitHub Actions",
+    ],
+    status: statusProjetoRealV3,
+    destaquesTecnicos: [
+      "7 microsserviços em Java 21 e Quarkus, com banco de dados próprio por serviço (MySQL, MongoDB e Qdrant) e contrato OpenAPI escrito antes do código para cada um",
+      "Comunicação síncrona (REST) e assíncrona (Kafka) de forma deliberada: síncrono onde precisa de efeito imediato (débito de saldo), Kafka para propagar eventos de domínio, como a indexação para RAG",
+      "IA tratada como porta, não como dependência de SDK: um LlmProvider abstrai OpenAI e Ollama, permitindo rodar 100% local sem dado saindo da própria infraestrutura",
+      "RAG real, com embeddings de transações indexados no Qdrant via evento Kafka e busca semântica para perguntas livres; a resposta final é sempre montada por template determinístico, nunca inventada pelo LLM",
+      "Confirmação obrigatória em toda ação que mexe em dinheiro, tanto na importação de documentos quanto em comandos da IA, seguindo o mesmo princípio documentado em ADR",
+      "Multi-tenancy real: todo dado particionado por usuário, com Keycloak (OIDC) em todas as camadas e nenhum endpoint serviço-a-serviço exposto ao frontend",
+      "Frontend web em Next.js assumindo o papel de BFF, agregando os 7 serviços via Server Components, com identidade visual e design system próprios",
+      "63 ADRs registrando decisões de arquitetura com contexto e consequências",
+      "Especificação spec-driven em todo endpoint, com testes obrigatórios em toda classe de serviço e domínio (cerca de 500 testes no total entre os serviços)",
+      "Pipeline de CI com gate de segurança (OWASP Dependency-Check e Trivy), bloqueando CVEs HIGH/CRITICAL sem exceção documentada",
+      "Documentação viva, com roadmap por fatia vertical, histórico cronológico de decisões e PRD separado da arquitetura",
+    ],
+    problemasResolvidos: [
+      "CRUD completo de receitas e despesas, avulsas ou recorrentes (mensal, com ou sem prazo definido, como salário indefinido ou financiamento em 48x)",
+      "Cartão de crédito com fatura e parcelamento automático, com o sistema decidindo em qual fatura cada parcela cai",
+      "Upload de fatura em PDF com extração automática via LLM local, seguida de revisão e confirmação do usuário antes de virar compra no cartão",
+      "Orçamento por categoria e cálculo de 'disponível pra gastar', cruzando saldo, fatura em aberto, despesas recorrentes e reserva",
+      "Chat com IA que responde perguntas e executa ações (ex: 'adicione uma despesa recorrente de R$ 50'), sempre pedindo confirmação explícita antes de mexer em dinheiro real",
+      "Dashboard com gráfico de gastos por categoria, comparando o mês atual com o anterior",
+    ],
+    tags: ["Microsserviços", "Java", "Quarkus", "IA"],
+    repositorioUrl: "https://github.com/wep1980/wep-financas",
+    notaFinal:
+      "Projeto real, com arquitetura de 7 microsserviços documentada em 63 ADRs e cerca de 500 testes automatizados entre os serviços. As imagens acima mostram o ambiente de demonstração da interface web, com dados fictícios.",
     imagens: [
-      { src: "/projetos/microsservicos/01.svg", alt: "Arquitetura conceitual da plataforma de microsserviços" },
-      { src: "/projetos/microsservicos/02.svg", alt: "Fluxo conceitual de requisição entre serviços" },
-      { src: "/projetos/microsservicos/03.svg", alt: "Estado conceitual dos serviços distribuídos" },
+      { src: "/projetos/financas/01.jpg", alt: "Dashboard do Finanças, com disponível pra gastar, reserva, cotação do dólar e gastos por categoria" },
+      { src: "/projetos/financas/02.jpg", alt: "Tela de Receitas/Despesas do Finanças, com lançamentos recorrentes e status de pagamento" },
+      { src: "/projetos/financas/03.jpg", alt: "Tela de Cartões do Finanças, com limite, fechamento e vencimento de cada cartão" },
+      { src: "/projetos/financas/04.jpg", alt: "Tela de Documentos do Finanças, com importação de fatura em PDF e status de confirmação" },
+      { src: "/projetos/financas/05.jpg", alt: "Chat com IA do Finanças, respondendo perguntas sobre a situação financeira do usuário" },
     ],
   },
   {
-    id: "dashboard-administrativo-react",
-    slug: "dashboard-administrativo-react",
-    titulo: "Dashboard Administrativo React",
-    resumo: "Dashboard React conceitual para explorar dados operacionais por meio de APIs Java.",
+    id: "waef",
+    slug: "waef",
+    titulo: "WAEF Web",
+    resumo:
+      "Console real em Angular para o WEP AI Engineering Framework, guiando a criação de projetos orientados por especificações.",
     descricao:
-      "Frontend React conceitual para visualização de métricas e gestão de dados integrado a APIs Java.",
+      "WAEF Web é uma interface de engenharia real que centraliza o uso do WEP AI Engineering Framework: permite configurar projetos, validar manifestos, visualizar a resolução tecnológica, analisar o plano de composição, acompanhar a geração da estrutura e consultar os resultados do Quality Gate.",
     categoria: "Frontend",
-    categorias: ["Frontend"],
-    tecnologias: ["React", "TypeScript", "APIs REST", "Java"],
-    status: statusProjetoV3,
-    varianteVisual: "react",
-    ...detalhesProjetosV3.react,
-    imagens: [
-      { src: "/projetos/dashboard-react/01.svg", alt: "Visão executiva conceitual do dashboard React" },
-      { src: "/projetos/dashboard-react/02.svg", alt: "Tabela conceitual de pedidos do dashboard React" },
-      { src: "/projetos/dashboard-react/03.svg", alt: "Relatórios conceituais do dashboard React" },
+    categorias: ["Frontend", "IA"],
+    tecnologias: [
+      "Angular",
+      "TypeScript",
+      "Tailwind CSS",
+      "RxJS",
     ],
-  },
-  {
-    id: "portal-corporativo-angular",
-    slug: "portal-corporativo-angular",
-    titulo: "Portal Corporativo Angular",
-    resumo: "Portal Angular conceitual para solicitações, aprovações e controle de acesso.",
-    descricao:
-      "Interface Angular conceitual para solicitações, aprovações e controle de acesso integrada a microsserviços Java.",
-    categoria: "Frontend",
-    categorias: ["Frontend"],
-    tecnologias: ["Angular", "TypeScript", "APIs REST", "Controle de acesso"],
-    status: statusProjetoV3,
-    varianteVisual: "angular",
-    ...detalhesProjetosV3.angular,
-    imagens: [
-      { src: "/projetos/portal-angular/01.svg", alt: "Portal inicial conceitual em Angular" },
-      { src: "/projetos/portal-angular/02.svg", alt: "Fluxo conceitual de aprovação do portal Angular" },
-      { src: "/projetos/portal-angular/03.svg", alt: "Gestão conceitual de solicitações no portal Angular" },
+    status: statusProjetoRealV3,
+    destaquesTecnicos: [
+      "Desenvolvido com Angular 22, TypeScript 6 e Tailwind CSS 4",
+      "Arquitetura baseada em componentes standalone, dispensando NgModules",
+      "Navegação com Angular Router e carregamento sob demanda das páginas",
+      "Gerenciamento de estado local com Signals e valores derivados com computed()",
+      "Uso do novo controle de fluxo do Angular: @if, @for e @switch",
+      "Aplicação zoneless, reduzindo dependência de detecção global de mudanças",
+      "Componentes reutilizáveis para métricas, status, tabelas, visualização de código e planos de composição",
+      "Modelos TypeScript para manifestos, configurações, stacks, capacidades, provedores, especificações e Quality Gate",
+      "Interface responsiva, otimizada para apresentações e screenshots em 1440×900 e 1920×1080",
+      "Fluxo completo e navegável: criação do projeto, validação do manifesto, composição, geração e análise de qualidade",
+      "Validação técnica concluída com lint, typecheck e build sem erros",
+      "Bundle de produção otimizado, com aproximadamente 293 KB no carregamento inicial",
     ],
-  },
-  {
-    id: "aplicativo-mobile-react-native",
-    slug: "aplicativo-mobile-react-native",
-    titulo: "Aplicativo Mobile React Native",
-    resumo: "Aplicativo mobile conceitual conectado a APIs Java para acompanhar fluxos e informações.",
-    descricao:
-      "Aplicativo mobile conceitual conectado a APIs REST Java, com autenticação, navegação e experiência consistente.",
-    categoria: "Mobile",
-    categorias: ["Mobile"],
-    tecnologias: ["React Native", "TypeScript", "Autenticação", "Backend"],
-    status: statusProjetoV3,
-    varianteVisual: "mobile",
-    ...detalhesProjetosV3.mobile,
-    imagens: [
-      { src: "/projetos/aplicativo-mobile/01.svg", alt: "Tela conceitual de acesso do aplicativo mobile" },
-      { src: "/projetos/aplicativo-mobile/02.svg", alt: "Home conceitual do aplicativo mobile" },
-      { src: "/projetos/aplicativo-mobile/03.svg", alt: "Telas conceituais de detalhes e perfil do aplicativo mobile" },
+    problemasResolvidos: [
+      "Simplificação da configuração de projetos por meio de um fluxo visual guiado",
+      "Redução de erros com validação clara do manifesto antes da geração",
+      "Visualização antecipada das dependências, propriedades e arquivos que serão produzidos",
+      "Transparência na resolução de stacks, capacidades e provedores",
+      "Centralização de especificações, ADRs e informações técnicas do framework",
+      "Consolidação dos testes e critérios de qualidade em um único Quality Gate",
+      "Maior rastreabilidade da origem de cada item do plano de composição",
+      "Validação da UX/UI antes da integração definitiva com o WAEF Core",
     ],
-  },
-  {
-    id: "plataforma-observabilidade",
-    slug: "plataforma-observabilidade",
-    titulo: "Plataforma de Observabilidade",
-    resumo: "Plataforma conceitual para correlacionar métricas, logs, traces e alertas.",
-    descricao:
-      "Monitoramento conceitual de aplicações Full Stack com logs, métricas, traces e alertas para sistemas distribuídos.",
-    categoria: "DevOps",
-    categorias: ["DevOps", "Backend", "Microsserviços"],
-    tecnologias: ["OpenTelemetry", "Prometheus", "Grafana", "Logs", "Traces"],
-    status: statusProjetoV3,
-    varianteVisual: "observabilidade",
-    ...detalhesProjetosV3.observabilidade,
+    tags: ["Frontend", "Angular", "IA"],
+    notaFinal:
+      "Projeto real, com validação técnica concluída (lint, typecheck e build sem erros) e bundle de produção de aproximadamente 293 KB. As imagens acima mostram o fluxo completo do console: visão geral, construção de projeto, validação de manifesto, plano de composição e Quality Gate.",
     imagens: [
-      { src: "/projetos/observabilidade/01.svg", alt: "Métricas conceituais da plataforma de observabilidade" },
-      { src: "/projetos/observabilidade/02.svg", alt: "Logs e alertas conceituais da plataforma de observabilidade" },
-      { src: "/projetos/observabilidade/03.svg", alt: "Traces e dependências conceituais da plataforma de observabilidade" },
+      { src: "/projetos/waef/01.jpg", alt: "Visão geral do WAEF, com saúde do framework, Quality Gate e stacks suportadas" },
+      { src: "/projetos/waef/02.jpg", alt: "Validação de manifesto do WAEF, com configuração resolvida e status válido" },
+      { src: "/projetos/waef/03.jpg", alt: "Construtor de projeto do WAEF, com stack, capacidades e pré-visualização do manifesto" },
+      { src: "/projetos/waef/04.jpg", alt: "Plano de composição do WAEF, com dependências, propriedades e arquivos resolvidos" },
+      { src: "/projetos/waef/05.jpg", alt: "Quality Gate do WAEF, com matriz de aceitação e verificações de governança" },
     ],
   },
 ];
