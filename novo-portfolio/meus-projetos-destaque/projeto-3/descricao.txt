@@ -1,0 +1,57 @@
+  ## Objetivo do sistema                                                                                                                                                           
+                                                                                                                                                                                   
+  O WAEF Web é uma interface de engenharia criada para centralizar e simplificar o uso do WEP AI Engineering Framework.                                                            
+                                                                                                                                                                                   
+  A aplicação permite configurar projetos, validar manifestos, visualizar a resolução tecnológica, analisar o plano de composição, acompanhar a geração da estrutura e consultar os
+  resultados do Quality Gate.                                                                                                                                                      
+                                                                                                                                                                                   
+  Seu principal objetivo é transformar processos complexos de engenharia de software em uma experiência visual, rastreável e previsível. A plataforma facilita a compreensão de    
+  como cada decisão — stack, arquitetura, capacidade ou provedor — influencia o projeto que será gerado.                                                                           
+                                                                                                                                                                                   
+  ## Tecnologias utilizadas                                                                                                                                                        
+                                                                                                                                                                                   
+  - Angular 22                                                                                                                                                                     
+  - TypeScript 6                                                                                                                                                                   
+  - Angular Router                                                                                                                                                                 
+  - Angular Standalone Components                                                                                                                                                  
+  - Angular Signals                                                                                                                                                                
+  - Angular Zoneless Change Detection                                                                                                                                              
+  - RxJS                                                                                                                                                                           
+  - Tailwind CSS 4                                                                                                                                                                 
+  - Lucide Icons                                                                                                                                                                   
+  - Ng Icons                                                                                                                                                                       
+  - ESLint                                                                                                                                                                         
+  - npm  
+
+
+## Destaques técnicos                                                                                                                                                            
+                                                                                                                                                                                   
+  - Desenvolvido com Angular 22, TypeScript 6 e Tailwind CSS 4.                                                                                                                    
+  - Arquitetura baseada em componentes standalone, dispensando NgModules.                                                                                                          
+  - Navegação com Angular Router e carregamento sob demanda das páginas.                                                                                                           
+  - Gerenciamento de estado local com Signals e valores derivados com computed().                                                                                                  
+  - Uso do novo controle de fluxo do Angular: @if, @for e @switch.                                                                                                                 
+  - Aplicação zoneless, reduzindo dependência de detecção global de mudanças.                                                                                                      
+  - Código, classes, variáveis e estrutura organizacional escritos predominantemente em português.                                                                                 
+  - Componentes reutilizáveis para métricas, status, tabelas, visualização de código e planos de composição.                                                                       
+  - Dados centralizados, tipados e desacoplados da interface, preparando a futura integração com o WAEF Core/API.                                                                  
+  - Modelos TypeScript para manifestos, configurações, stacks, capacidades, provedores, especificações e Quality Gate.                                                             
+  - Interface responsiva, otimizada para apresentações e screenshots em 1440×900 e 1920×1080.                                                                                      
+  - Tema escuro com identidade visual própria, ícones Lucide e cores semânticas para estados operacionais.                                                                         
+  - Fluxo completo e navegável: criação do projeto, validação do manifesto, composição, geração e análise de qualidade.                                                            
+  - Validação técnica concluída com lint, typecheck e build sem erros.                                                                                                             
+  - Bundle de produção otimizado, com aproximadamente 293 KB no carregamento inicial. 
+
+
+  ## Problemas resolvidos                                                                                                                                                          
+                                                                                                                                                                                   
+  - Simplificação da configuração de projetos por meio de um fluxo visual guiado.                                                                                                  
+  - Redução de erros com validação clara do manifesto antes da geração.                                                                                                            
+  - Visualização antecipada das dependências, propriedades e arquivos que serão produzidos.                                                                                        
+  - Transparência na resolução de stacks, capacidades e provedores.                                                                                                                
+  - Centralização de especificações, ADRs e informações técnicas do framework.                                                                                                     
+  - Consolidação dos testes e critérios de qualidade em um único Quality Gate.                                                                                                     
+  - Maior rastreabilidade da origem de cada item do plano de composição.                                                                                                           
+  - Melhoria da experiência do desenvolvedor, substituindo processos complexos por uma interface clara e navegável.                                                                
+  - Facilitação da comunicação técnica entre desenvolvimento, arquitetura e stakeholders.                                                                                          
+  - Validação da UX/UI antes da integração definitiva com o WAEF Core.             

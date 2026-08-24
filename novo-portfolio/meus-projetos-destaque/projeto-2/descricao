@@ -1,0 +1,36 @@
+Finanças — visão geral pro portfólio
+
+  O que é: sistema de finanças pessoais multi-usuário que faz três coisas que planilha nenhuma faz de verdade — lê os documentos financeiros que você já recebe (fatura de cartão em PDF), transforma isso
+  em transação estruturada automaticamente, e deixa você conversar em português com uma IA sobre sua própria situação financeira ("quanto posso gastar esse mês?", "quanto gastei com mercado?"), sempre
+  com resposta rastreável a dado real, nunca inventada.
+
+  Funcionalidades principais
+
+  - CRUD de receitas/despesas, avulsas ou recorrentes (mensal, com ou sem prazo definido — ex: salário indefinido, financiamento em 48x)
+  - Cartão de crédito com fatura e parcelamento automático (o sistema decide em qual fatura cada parcela cai)
+  - Upload de fatura em PDF → extração via LLM local → revisão e confirmação do usuário → vira compra no cartão
+  - Orçamento por categoria e cálculo de "disponível pra gastar" (cruza saldo, fatura em aberto, despesas recorrentes e reserva)
+  - Chat com IA: responde pergunta E executa ação ("adicione uma despesa recorrente de R$50"), sempre pedindo confirmação explícita antes de mexer em dinheiro de verdade
+  - Dashboard com gráfico de gastos por categoria, mês atual x anterior
+
+  Arquitetura — o que mostra mais engenharia
+
+  - 7 microsserviços (Java 21 + Quarkus), database-per-service (MySQL/MongoDB/Qdrant), um contrato OpenAPI escrito antes do código para cada um
+  - Síncrono (REST) + assíncrono (Kafka) de forma deliberada — síncrono onde precisa de efeito imediato (débito de saldo), Kafka para propagar evento de domínio (indexação pra RAG, por exemplo)
+  - IA como porta, não dependência de SDK — LlmProvider abstrai OpenAI/Ollama, usuário escolhe (inclusive rodar 100% local, sem dado saindo da própria infra)
+  - RAG de verdade: embeddings de transação indexados no Qdrant via evento Kafka, busca semântica pra pergunta livre; resposta final sempre montada por template determinístico — o LLM interpreta a
+    pergunta, nunca "inventa" o número
+  - Confirmação obrigatória em toda ação que mexe em dinheiro — tanto na importação de documento quanto no comando de IA, mesmo princípio (ADR-0007), nada é persistido sem o usuário ver e confirmar
+  - Multi-tenancy real: todo dado particionado por usuário, Keycloak (OIDC) em toda camada, endpoint serviço-a-serviço nunca exposto ao front
+  - Front-end web em Next.js assumindo o papel de BFF (Server Components agregando os 7 serviços), com identidade visual própria (design system documentado, paleta de marca)
+
+  Rigor de processo (bom pra portfólio mostrar maturidade, não só código)
+
+  - 63 ADRs registrando decisão de arquitetura com contexto/consequência
+  - Spec-driven em todo endpoint, testes obrigatórios em toda classe de serviço/domínio (~500 testes no total entre os serviços)
+  - CI com gate de segurança (OWASP Dependency-Check/Trivy, bloqueia CVE HIGH/CRITICAL sem exceção documentada)
+  - Documentação viva: roadmap por fatia vertical, histórico cronológico de decisão, PRD separado de arquitetura
+
+  Stack
+
+  Java 21/Quarkus · Next.js/React · MySQL/MongoDB/Qdrant · Kafka · Keycloak · Docker Compose (+ Kamal em produção) · GitHub Actions · Ollama/OpenAI (LLM)

@@ -1,0 +1,106 @@
+ O objetivo do Economix é ajudar consumidores a economizar nas compras, reunindo ofertas de diferentes mercados, comparando preços e indicando as melhores opções por produto, loja ou lista de compras.
+
+  A plataforma também permite montar listas de compras, calcular o custo estimado em diferentes estabelecimentos, acompanhar o histórico de preços e processar encartes públicos com OCR para transformar ofertas em dados
+  estruturados e revisáveis.
+
+Tecnologias utilizadas no Economix:
+
+• O Economix utiliza:
+
+  Backend
+
+  - Java 21
+  - Spring Boot 3.5
+  - Spring Web
+  - Spring Data JPA
+  - Hibernate
+  - Maven
+  - PostgreSQL
+  - Flyway
+  - JWT
+  - Bean Validation
+  - Swagger/OpenAPI
+
+  Coleta e IA
+
+  - Tesseract OCR
+  - Ollama
+  - Playwright
+  - Scripts PowerShell
+  - Processamento de encartes e imagens JPEG
+
+  Frontend Web
+
+  - Angular 20
+  - TypeScript
+  - RxJS
+  - HTML
+  - CSS
+  - Nginx
+
+  Aplicativo Mobile
+
+  - React Native
+  - Expo
+  - React
+  - TypeScript
+  - react-native-web
+
+  Infraestrutura
+
+  - Docker
+  - Docker Compose
+  - Docker Testcontainers
+  - MinIO
+  - Cloudflare Tunnel
+  - SSH
+  - Linux Ubuntu
+  - PostgreSQL em container
+
+  Testes e ferramentas
+
+  - JUnit
+  - Mockito
+  - Karma
+  - Jasmine
+  - Chrome Headless
+  - Newman/Postman
+  - Git e GitHub
+
+  O frontend web é Angular, enquanto o aplicativo mobile é React Native com Expo.
+
+
+ Os principais destaques técnicos do Economix são:
+
+   - Arquitetura full stack moderna, com Java/Spring Boot no backend, Angular no web e React Native no mobile.
+   - Arquitetura em camadas, separando controllers, services, repositories, entidades, DTOs, segurança e integrações.
+   - Catálogo normalizado de produtos, permitindo comparar o mesmo produto entre diferentes lojas.
+   - Coleta automatizada de encartes, com fallback headless usando Playwright quando a coleta padrão falha.
+   - OCR de imagens, utilizando Tesseract para extrair produtos, preços e validade dos encartes.
+   - Revisão humana controlada, permitindo aprovar ou rejeitar candidatos OCR antes de gerar ofertas.
+   - Integração com Ollama, preparada para normalização e interpretação local dos dados.
+   - Comparação multi-loja, calculando menor preço, cobertura de ofertas e custo estimado.
+   - Otimização de compras, distribuindo itens entre lojas para reduzir o custo total.
+   - Histórico de preços, permitindo acompanhar variações ao longo do tempo.
+   - Segurança com JWT e API Keys, incluindo autorização por perfil e proteção de endpoints.
+   - PostgreSQL com Flyway, garantindo persistência estruturada e versionamento das migrações.
+   - Armazenamento de imagens com MinIO, incluindo retenção, auditoria e URLs de visualização protegidas.
+   - Frontend responsivo, com estados de carregamento, fallback demonstrativo e integração REST.
+   - Aplicativo mobile com Expo, compartilhando os mesmos contratos da API.
+   - Containerização com Docker, usando Nginx para servir o Angular e fazer proxy para o backend.
+   - Testes automatizados, com JUnit, Mockito, Testcontainers, Jasmine, Karma e Chrome Headless.
+   - Deploy operacional, com containers separados, rede Docker interna, health checks e infraestrutura Linux.
+
+
+   › problemas resolvidos?
+
+     - Backend Java implementado e validado com 225 testes.
+     - Coleta padrão e fallback headless dos encartes implementados.
+     - OCR, revisão e geração de ofertas funcionando.
+     - Frontend Angular integrado à API.
+     - Mobile React Native com navegação e cliente REST.
+     - Frontend publicado em container no servidor.
+     - Comunicação frontend → backend validada.
+     - Configuração de domínio público para o frontend.
+     - Teste do mobile em um dispositivo físico/Expo Go.
+
