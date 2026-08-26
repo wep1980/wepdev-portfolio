@@ -15,7 +15,7 @@ export function HomeV3() {
     <>
       <Container className="pt-8 sm:pt-10">
         <div className="rounded-3xl border border-border bg-surface/60 p-5 shadow-sm sm:p-8 lg:p-10">
-          <div className="grid gap-10 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[21rem_minmax(0,1fr)]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[21rem_minmax(0,1fr)]">
             <div className="lg:sticky lg:top-28 lg:h-fit">
               <HeroV3 />
             </div>

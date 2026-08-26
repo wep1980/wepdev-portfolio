@@ -10,7 +10,7 @@ export function NavbarV3({ basePath = "" }: { basePath?: string }) {
           <Link
             href={`${basePath}#inicio`}
             aria-label="Waldir Escouto Pereira — ir para o início"
-            className="inline-flex shrink-0 items-center gap-2.5 rounded-full outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            className="inline-flex min-w-0 items-center gap-2.5 rounded-full outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           >
             <span className="relative size-10 shrink-0 transform overflow-hidden rounded-full ring-1 ring-white/15 transition-transform duration-300 hover:scale-110 sm:size-11">
               <Image

@@ -67,7 +67,7 @@ export function ItemExperienciaCardV3({ experiencia }: PropriedadesItemExperienc
           </h3>
         </div>
 
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="flex min-w-0 flex-wrap items-center gap-1">
           <p className="mr-1 font-mono text-xs font-semibold uppercase tracking-[0.08em] text-card-dark-muted">
             {experiencia.periodo}
           </p>
