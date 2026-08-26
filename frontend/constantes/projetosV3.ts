@@ -188,6 +188,7 @@ export const projetosV3: readonly ProjetoV3[] = [
       "Validação da UX/UI antes da integração definitiva com o WAEF Core",
     ],
     tags: ["Frontend", "Angular", "IA"],
+    repositorioUrl: "https://github.com/wep1980/waef",
     notaFinal:
       "Projeto real, com validação técnica concluída (lint, typecheck e build sem erros) e bundle de produção de aproximadamente 293 KB. As imagens acima mostram o fluxo completo do console: visão geral, construção de projeto, validação de manifesto, plano de composição e Quality Gate.",
     imagens: [
