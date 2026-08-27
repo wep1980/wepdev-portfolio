@@ -9,6 +9,7 @@ export const eventosAnalytics = {
   curriculo: "curriculum-click",
   repositorioProjeto: "project-repository-click",
   ctaPrimario: "primary-cta-click",
+  hobby: "hobby-category-click",
 } as const;
 
 export const locaisAnalytics = {
@@ -18,6 +19,7 @@ export const locaisAnalytics = {
   rodape: "footer",
   projetos: "projects",
   curriculo: "resume",
+  hobbies: "hobbies",
 } as const;
 
 export const secoesAnalytics = {
@@ -112,5 +114,13 @@ export function atributosCtaPrimarioAnalytics() {
     "data-umami-event": eventosAnalytics.ctaPrimario,
     "data-umami-event-action": acoesAnalytics.verProjetos,
     "data-umami-event-location": locaisAnalytics.hero,
+  } as const;
+}
+
+export function atributosHobbyAnalytics(categoria: string) {
+  return {
+    "data-umami-event": eventosAnalytics.hobby,
+    "data-umami-event-category": categoria,
+    "data-umami-event-location": locaisAnalytics.hobbies,
   } as const;
 }

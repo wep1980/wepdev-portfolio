@@ -4,6 +4,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { SectionHeader } from "@/componentes/shared/SectionHeader";
+import { atributosHobbyAnalytics } from "@/constantes/analytics";
 import { categoriasHobbies, type CategoriaHobby } from "@/constantes/hobbies";
 
 export function SecaoHobbiesV3() {
@@ -29,6 +30,7 @@ export function SecaoHobbiesV3() {
               type="button"
               onClick={() => setCategoriaId(item.id)}
               aria-pressed={ativa}
+              {...atributosHobbyAnalytics(item.titulo)}
               className={[
                 "group flex flex-col items-center gap-2 rounded-2xl p-2 text-center outline-none transition duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
                 ativa
