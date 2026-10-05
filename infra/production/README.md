@@ -42,8 +42,12 @@ infra/production/
 Diretório esperado no servidor:
 
 ```text
-/home/wepdev/apps/wepdev-portfolio/repository/infra/production
+/home/wepdev/projetos/wepdev-portfolio/infra/production
 ```
+
+### Ajustes locais do servidor (`compose.override.yaml`)
+
+No servidor existe o arquivo `infra/production/compose.override.yaml`, que **não é versionado** (está no `.gitignore`). Ele é carregado automaticamente pelo `docker compose` e hoje define o limite de memória do container (`mem_limit` e `memswap_limit` de `512m`). Não apague esse arquivo ao atualizar o servidor. Como está ignorado pelo Git, ele não deixa a working tree "suja" e não impede o `deploy.sh`.
 
 ## Primeiro Deploy
 

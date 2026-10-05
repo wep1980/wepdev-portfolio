@@ -20,7 +20,7 @@ docker build -t wepdev-portfolio:local frontend
 No servidor, a partir de:
 
 ```text
-/home/wepdev/apps/wepdev-portfolio/repository/infra/production
+/home/wepdev/projetos/wepdev-portfolio/infra/production
 ```
 
 executar:
@@ -30,6 +30,10 @@ executar:
 ```
 
 O script valida Git, branch `main`, working tree limpa, atualiza com fast-forward, reconstrói a imagem e sobe o serviço.
+
+### Ajustes locais do servidor (`compose.override.yaml`)
+
+No servidor existe o arquivo `infra/production/compose.override.yaml`, que **não é versionado** (está no `.gitignore`). Ele é carregado automaticamente pelo `docker compose` e hoje define o limite de memória do container (`mem_limit` e `memswap_limit` de `512m`). Não apague esse arquivo ao atualizar o servidor. Como está ignorado pelo Git, ele não deixa a working tree "suja" e não impede o `deploy.sh`.
 
 ## Atualização
 
@@ -179,3 +183,20 @@ O usuário não deve ser `root`.
 ## Analytics
 
 O Umami Analytics será implementado em etapa posterior. Esta entrega apenas preserva os atributos `data-umami-event` existentes no frontend e documenta a arquitetura futura.
+
+## Rollback
+
+Opção 1, pelo Git: `./scripts/rollback.sh <commit-ou-tag>` faz o checkout destacado do commit informado e reconstrói a imagem a partir dele. Depois, para voltar a atualizar normalmente, execute `git checkout main`, pois o `deploy.sh` exige a branch `main`.
+
+Opção 2, mais rápida, pela imagem Docker: antes de um deploy importante, guarde a imagem atual com uma etiqueta de data:
+
+```bash
+docker tag wepdev-portfolio-production-portfolio:latest wepdev-portfolio-production-portfolio:antes-AAAA-MM-DD
+```
+
+Para voltar, reaponte a etiqueta `latest` para a imagem guardada e rode `docker compose up -d` em `infra/production`:
+
+```bash
+docker tag wepdev-portfolio-production-portfolio:antes-AAAA-MM-DD wepdev-portfolio-production-portfolio:latest
+docker compose up -d
+```

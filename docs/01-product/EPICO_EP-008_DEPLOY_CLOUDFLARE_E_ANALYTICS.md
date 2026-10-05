@@ -239,6 +239,8 @@ A aplicação deverá ser instalada em:
 /home/wepdev/apps/wepdev-portfolio
 ```
 
+> **Atualização (2026-10-05):** o repositório foi instalado, na prática, em `/home/wepdev/projetos/wepdev-portfolio` (sem a subpasta `repository/`). O caminho abaixo é o plano original do épico e ficou como registro histórico. Os serviços de apoio (Umami, Authelia, Diun) ficam em `/home/wepdev/apps/`.
+
 Estrutura esperada:
 
 ```text
