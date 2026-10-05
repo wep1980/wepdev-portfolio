@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FileDown, Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { NavegacaoLateralV3 } from "@/componentes/home/v3/NavegacaoLateralV3";
+import { Botao } from "@/componentes/ui/Botao";
 import { IconeWhatsApp } from "@/componentes/ui/IconeWhatsApp";
 import {
   atributosCanalProfissionalAnalytics,
@@ -72,8 +73,33 @@ export function HeroV3() {
         {nomeProfissional}
       </h1>
       <p className="mt-1 text-base font-medium text-muted">{cargoProfissional}</p>
+      <p className="mt-3 text-sm leading-relaxed text-muted">
+        Backend Java com microsserviços, nuvem e IA aplicada ao desenvolvimento. Aberto a novas
+        oportunidades.
+      </p>
 
-      <div className="mt-5 flex flex-wrap items-center gap-2.5">
+      <div className="mt-5 flex flex-wrap gap-2.5">
+        <Botao
+          href={linkedin.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          {...atributosCanalProfissionalAnalytics("linkedin", locaisAnalytics.hero)}
+        >
+          <FaLinkedin aria-hidden="true" />
+          Falar comigo
+        </Botao>
+        <Botao
+          href={curriculo.href}
+          download
+          variante="secundario"
+          {...atributosCurriculoAnalytics(locaisAnalytics.hero)}
+        >
+          <FileDown aria-hidden="true" />
+          Baixar currículo
+        </Botao>
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-2.5">
         <IconeSocial tipo="linkedin" rotulo="LinkedIn" href={linkedin.href} />
         <IconeSocial tipo="github" rotulo="GitHub" href={github.href} />
         <IconeSocial tipo="email" rotulo="E-mail" href={email.href} />

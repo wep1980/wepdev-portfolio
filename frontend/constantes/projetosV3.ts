@@ -135,7 +135,7 @@ export const projetosV3: readonly ProjetoV3[] = [
       "Dashboard com gráfico de gastos por categoria, comparando o mês atual com o anterior",
     ],
     tags: ["Microsserviços", "Java", "Quarkus", "IA"],
-    repositorioUrl: "https://github.com/wep1980/wep-financas",
+    repositorioUrl: "https://github.com/wep1980/wepdev-financas",
     notaFinal:
       "Projeto real, com arquitetura de 7 microsserviços documentada em 63 ADRs e cerca de 500 testes automatizados entre os serviços. As imagens acima mostram o ambiente de demonstração da interface web, com dados fictícios.",
     imagens: [

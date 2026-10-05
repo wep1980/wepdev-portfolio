@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { urlSiteOficial } from "@/constantes/site";
+import { dadosEstruturadosPessoa } from "@/constantes/dadosEstruturados";
 import "./globals.css";
 
 const fontePrincipal = IBM_Plex_Sans({
@@ -33,11 +34,11 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   title: {
-    default: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
+    default: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     template: "%s | WEPDEV Portfolio",
   },
   description:
-    "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+    "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   authors: [
     {
       name: "Waldir Escouto Pereira",
@@ -71,15 +72,15 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: `${urlSiteOficial}/`,
     siteName: "WEPDEV Portfolio",
-    title: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
+    title: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+      "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   twitter: {
-    card: "summary",
-    title: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
+    card: "summary_large_image",
+    title: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+      "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   robots: {
     index: true,
@@ -101,6 +102,10 @@ export default function LayoutRaiz({
       className={`${fontePrincipal.variable} ${fonteCodigo.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(dadosEstruturadosPessoa) }}
+        />
         {children}
         <Script
           src="https://analytics.wepdev.com.br/script.js"

@@ -11,7 +11,7 @@ export function SecaoSobreV3() {
             Engenheiro de Software com foco em Inteligência Artificial aplicada ao
             desenvolvimento de software
           </strong>
-          , com mais de 8 anos de experiência como{" "}
+          , com quase 8 anos de experiência como{" "}
           <strong className="font-semibold text-foreground">Desenvolvedor Java Full Stack</strong>,
           atuando na construção e evolução de aplicações, APIs REST, microsserviços e sistemas
           distribuídos.
