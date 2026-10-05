@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { urlSiteOficial } from "@/constantes/site";
+import { dadosEstruturadosPessoa } from "@/constantes/dadosEstruturados";
 import "./globals.css";
 
 const fontePrincipal = IBM_Plex_Sans({
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
       "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     description:
       "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
@@ -101,6 +102,10 @@ export default function LayoutRaiz({
       className={`${fontePrincipal.variable} ${fonteCodigo.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(dadosEstruturadosPessoa) }}
+        />
         {children}
         <Script
           src="https://analytics.wepdev.com.br/script.js"
