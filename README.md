@@ -1,44 +1,43 @@
-﻿# WEPDEV Portfolio
+# WEPDEV Portfolio
 
-Portfólio profissional de Waldir Escouto Pereira, Desenvolvedor Java Sênior.
-
-O projeto será desenvolvido como uma aplicação full stack, utilizando práticas modernas de Engenharia de Software, documentação versionada, testes automatizados e desenvolvimento assistido por IA.
+Portfólio profissional de Waldir Escouto Pereira, Engenheiro de Software Sênior (Java): https://wepdev.com.br
 
 ## Objetivo
 
-Apresentar experiência profissional, competências técnicas, projetos e estudos de caso de forma pública e organizada, apoiando a recolocação profissional para vagas de Desenvolvedor Java Sênior, Backend Engineer e Software Engineer.
+Apresentar experiência profissional, competências técnicas, projetos e estudos de caso de forma pública e organizada, apoiando a recolocação profissional para vagas de desenvolvimento com Java (backend, full stack e engenharia de software).
 
-## Tecnologias planejadas
+## Como é construído hoje
 
-### Frontend
+Site de página única, gerado de forma estática, com o conteúdo (experiências, projetos, tecnologias) mantido como dados no código do frontend. **Não há backend nem banco de dados em produção.**
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+| Camada | Tecnologia |
+|---|---|
+| Frontend | Next.js, React, TypeScript, Tailwind CSS |
+| Empacotamento | Docker (build `standalone`) |
+| Infraestrutura | Docker Compose em servidor Ubuntu próprio, exposto por Cloudflare Tunnel (`infra/production`) |
+| Métricas | Umami Analytics próprio (script em `analytics.wepdev.com.br`) |
 
-### Backend
+Um backend (Java 21, Spring Boot, PostgreSQL) foi cogitado no início do projeto, mas **não foi implementado**; só entrará quando houver uma necessidade real (por exemplo, formulário de contato com persistência).
 
-- Java 21
-- Spring Boot
-- PostgreSQL
-- OpenAPI
-- Testes automatizados
+## Estrutura do repositório
 
-### Infraestrutura
+- `frontend/`: aplicação Next.js (código do site, conteúdo em `frontend/constantes/`).
+- `docs/`: documentação do produto, design, frontend e infraestrutura.
+- `infra/production/`: composição e scripts de produção.
 
-- Docker
-- Nginx
-- GitHub Actions
-- Servidor Ubuntu
+## Desenvolvimento local
 
-## Estado atual
+```bash
+cd frontend
+npm ci
+npm run dev      # http://localhost:3000
+npm run lint
+npm run build
+```
 
-O projeto está na fase inicial de fundação e estruturação.
+## Atualizando o conteúdo
 
-## Documentação
-
-A documentação do projeto está disponível na pasta [`docs`](docs/README.md).
+Experiências, projetos e tecnologias ficam em `frontend/constantes/`. O currículo em PDF fica em `frontend/public/` e deve ser atualizado junto com o LinkedIn para que os três canais contem a mesma história.
 
 ## Licença
 
