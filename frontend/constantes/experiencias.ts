@@ -2,15 +2,12 @@ import type { ExperienciaProfissional } from "@/dominio/experiencia/ExperienciaP
 
 export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
   {
-    id: "grupo-casas-bahia-2026-atual",
-    empresa: "Grupo Casas Bahia",
+    id: "fcamara-2026",
+    empresa: "FCamara",
+    cliente: "Grande varejista (e-commerce B2B)",
     cargo: "Engenheiro de Software Sênior",
-    periodo: "janeiro de 2026 — atual",
+    periodo: "janeiro de 2026 — setembro de 2026",
     destaque: true,
-    logoSrc: "/logos/casas-bahia.jpg",
-    logoCorFundo: "#0033CC",
-    siteUrl: "https://www.casasbahia.com.br",
-    linkedinUrl: "https://www.linkedin.com/company/2977558/",
     resumo:
       "Atuação na manutenção e evolução de microsserviços Java/Spring Boot em ecossistema de e-commerce B2B de alta complexidade, com foco em observabilidade, infraestrutura em nuvem e qualidade das entregas.",
     atividades: [
@@ -80,10 +77,7 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
   {
     id: "200dev-2024-2025",
     empresa: "200DEV",
-    clientes: [
-      { nome: "Banco BV", logoSrc: "/logos/bv.png", url: "https://www.bv.com.br", bordaClara: true },
-      { nome: "Ipiranga", logoSrc: "/logos/ipiranga.png", url: "https://www.ipiranga.com.br" },
-    ],
+    cliente: "Setores financeiro e de energia",
     cargo: "Desenvolvedor Web/Java",
     periodo: "abril de 2024 — janeiro de 2025",
     logoSrc: "/logos/200dev.jpg",
@@ -91,10 +85,10 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
     siteUrl: "https://200dev.com.br",
     linkedinUrl: "https://www.linkedin.com/company/72466372/",
     resumo:
-      "Desenvolvimento, sustentação e evolução de aplicações Java para clientes do setor financeiro (Banco BV e Ipiranga), com foco em segurança, integrações assíncronas e processamento automatizado de arquivos.",
+      "Desenvolvimento, sustentação e evolução de aplicações Java para clientes dos setores financeiro e de energia, com foco em segurança, integrações assíncronas e processamento automatizado de arquivos.",
     atividades: [
       "Correção de vulnerabilidades críticas identificadas em aplicações Java do setor financeiro, atendendo a prazos de criticidade definidos por auditorias de segurança e reduzindo o risco de exposição em produção.",
-      "Evolução de APIs REST para o Banco BV e Ipiranga, documentando contratos com Swagger/OpenAPI e padronizando respostas de erro para facilitar a integração com sistemas parceiros.",
+      "Evolução de APIs REST para clientes dos setores financeiro e de energia, documentando contratos com Swagger/OpenAPI e padronizando respostas de erro para facilitar a integração com sistemas parceiros.",
       "Desenvolvimento de processos batch para leitura, validação e processamento de arquivos financeiros, com tratamento de falhas e reprocessamento automático em caso de inconsistência nos dados.",
       "Integração assíncrona entre sistemas via RabbitMQ, desacoplando serviços de processamento e reduzindo o impacto de picos de carga sobre as APIs síncronas.",
       "Diagnóstico e correção de instabilidades em produção, ampliando a cobertura de testes unitários com JUnit para prevenir regressões em fluxos críticos.",
@@ -121,21 +115,13 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
     id: "cbyk-consultoria-2024",
     empresa: "CBYK Consultoria",
     logoSrc: "/logos/cbyk.jpg",
-    clientes: [
-      {
-        nome: "Ministério da Cidadania",
-        logoSrc: "/logos/ministerio-cidadania.png",
-        url: "https://www.gov.br/cidadania",
-      },
-      { nome: "Vibra", logoSrc: "/logos/vibra.png", url: "https://www.vibraenergia.com.br" },
-      { nome: "TJ-BA", logoSrc: "/logos/tjba.png", url: "https://www.tjba.jus.br" },
-    ],
+    cliente: "Setores público e de energia",
     siteUrl: "https://cbyk.com/",
     linkedinUrl: "https://www.linkedin.com/company/cbyk-consultoria/",
     cargo: "Desenvolvedor Web/Java",
     periodo: "janeiro de 2024 — abril de 2024",
     resumo:
-      "Desenvolvimento de microsserviços cloud-native e arquiteturas orientadas a eventos para clientes como Ministério da Cidadania, Vibra e TJ-BA, com foco em performance, desacoplamento, testabilidade e observabilidade.",
+      "Desenvolvimento de microsserviços cloud-native e arquiteturas orientadas a eventos para clientes dos setores público e de energia, com foco em performance, desacoplamento, testabilidade e observabilidade.",
     atividades: [
       "Desenvolvimento e evolução de microsserviços com Quarkus e Spring Boot, aplicando Arquitetura Hexagonal para isolar regras de negócio das integrações externas de cada cliente.",
       "Implementação de arquitetura orientada a eventos com Apache Kafka, desacoplando serviços e absorvendo picos de processamento sem impactar as APIs síncronas.",
@@ -174,25 +160,15 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
     empresa: "Atos",
     logoSrc: "/logos/atos.png",
     logoBordaClara: true,
-    clientes: [
-      {
-        nome: "Banco Bradesco",
-        logoSrc: "/logos/bradesco.png",
-        url: "https://www.bradesco.com.br",
-        bordaClara: true,
-        corFundo: "#E5173F",
-      },
-      { nome: "Elo Cartões", logoSrc: "/logos/elo.png", url: "https://www.cartaoelo.com.br" },
-      { nome: "B3 - Bolsa de Valores", logoSrc: "/logos/b3.png", url: "https://www.b3.com.br" },
-    ],
+    cliente: "Setor financeiro",
     siteUrl: "https://atos.net/pt-pt/portugal",
     linkedinUrl: "https://www.linkedin.com/company/atos/",
     cargo: "Desenvolvedor Web/Java",
     periodo: "julho de 2022 — janeiro de 2024",
     resumo:
-      "Atuação em sistemas corporativos e financeiros para clientes como Banco Bradesco, Elo Cartões e B3, desenvolvendo microsserviços, integrações seguras e comunicação entre plataformas modernas e sistemas legados.",
+      "Atuação em sistemas corporativos e financeiros para clientes do setor financeiro, desenvolvendo microsserviços, integrações seguras e comunicação entre plataformas modernas e sistemas legados.",
     atividades: [
-      "Desenvolvimento e sustentação de microsserviços para clientes como Banco Bradesco, Elo Cartões e B3, integrando sistemas distribuídos modernos a mainframes legados via RMI.",
+      "Desenvolvimento e sustentação de microsserviços para clientes do setor financeiro, integrando sistemas distribuídos modernos a mainframes legados via RMI.",
       "Integração assíncrona entre sistemas com Kafka e RabbitMQ, permitindo o processamento de eventos financeiros sem acoplar diretamente os serviços consumidores.",
       "Uso de Redis para cache e controle de idempotência em operações financeiras críticas, evitando o processamento duplicado de transações em cenários de reenvio.",
       "Uso de MongoDB para armazenar eventos e dados semiestruturados, apoiando fluxos de auditoria e rastreabilidade das integrações entre plataformas.",
@@ -226,22 +202,15 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
     id: "blendit-2022",
     empresa: "BlendIt",
     logoSrc: "/logos/blendit.png",
-    clientes: [
-      {
-        nome: "Santander",
-        logoSrc: "/logos/santander.png",
-        url: "https://www.santander.com.br",
-        bordaClara: true,
-      },
-    ],
+    cliente: "Setor bancário",
     siteUrl: "https://blendit.com/",
     linkedinUrl: "https://www.linkedin.com/company/blend-it-srl/",
     cargo: "Desenvolvedor Full Stack",
     periodo: "fevereiro de 2022 — julho de 2022",
     resumo:
-      "Atuação em aplicação do setor bancário do Santander, evoluindo APIs REST com Java e Spring Boot, ampliando testes automatizados e desenvolvendo funcionalidades backend e frontend com Angular.",
+      "Atuação em aplicação do setor bancário, evoluindo APIs REST com Java e Spring Boot, ampliando testes automatizados e desenvolvendo funcionalidades backend e frontend com Angular.",
     atividades: [
-      "Desenvolvimento e evolução de APIs REST com Java e Spring Boot para aplicação do setor bancário do Santander, implementando novas funcionalidades e mantendo compatibilidade com integrações existentes.",
+      "Desenvolvimento e evolução de APIs REST com Java e Spring Boot para aplicação do setor bancário, implementando novas funcionalidades e mantendo compatibilidade com integrações existentes.",
       "Ampliação da cobertura de testes com JUnit e Mockito, reduzindo regressões em fluxos críticos de transações antes de cada release.",
       "Integração com MongoDB para persistência de dados semiestruturados, com modelagem voltada às consultas mais frequentes da aplicação.",
       "Implementação de comunicação assíncrona por mensageria entre serviços backend, desacoplando processos de maior latência do fluxo principal de requisições.",
@@ -271,17 +240,15 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
     id: "plennus-ti-2019-2022",
     empresa: "Plennus TI",
     logoSrc: "/logos/plennus.jpg",
-    clientes: [
-      { nome: "Centro de Computação da Aeronáutica (RJ)", logoSrc: "/logos/cca-rj.jpg" },
-    ],
+    cliente: "Setor público",
     siteUrl: "https://plennusti.com/",
     linkedinUrl: "https://www.linkedin.com/company/plennusti/",
     cargo: "Desenvolvedor Full Stack",
     periodo: "janeiro de 2019 — fevereiro de 2022",
     resumo:
-      "Atuação na sustentação e evolução de sistemas corporativos críticos para o Centro de Computação da Aeronáutica (RJ), combinando tecnologias Java legadas e modernas.",
+      "Atuação na sustentação e evolução de sistemas corporativos críticos do setor público, combinando tecnologias Java legadas e modernas.",
     atividades: [
-      "Desenvolvimento e manutenção de sistemas críticos em Java EE para o Centro de Computação da Aeronáutica (RJ), atuando com Spring MVC, JSF, JSP, PrimeFaces e RichFaces em aplicações com grande volume de usuários.",
+      "Desenvolvimento e manutenção de sistemas críticos em Java EE para o setor público, atuando com Spring MVC, JSF, JSP, PrimeFaces e RichFaces em aplicações com grande volume de usuários.",
       "Migração gradual do acesso a dados baseado em JDBC para Hibernate/JPA, reduzindo código boilerplate e padronizando o acesso ao banco entre os módulos do sistema.",
       "Persistência com Hibernate, Criteria API e queries nativas, otimizando consultas nas telas com maior volume de acesso simultâneo.",
       "Desenvolvimento de novas APIs REST com Spring Boot para expor funcionalidades legadas a novas interfaces, viabilizando a modernização gradual do sistema sem interromper a operação.",

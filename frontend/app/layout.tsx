@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   title: {
-    default: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
+    default: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     template: "%s | WEPDEV Portfolio",
   },
   description:
-    "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+    "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   authors: [
     {
       name: "Waldir Escouto Pereira",
@@ -71,15 +71,15 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: `${urlSiteOficial}/`,
     siteName: "WEPDEV Portfolio",
-    title: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
+    title: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+      "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   twitter: {
     card: "summary",
-    title: "Waldir Escouto Pereira | Desenvolvedor Java Full Stack Sênior",
+    title: "Waldir Escouto Pereira | Engenheiro de Software Sênior (Java)",
     description:
-      "Portfólio profissional de Waldir Escouto Pereira, desenvolvedor Java Full Stack sênior com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
+      "Portfólio profissional de Waldir Escouto Pereira, engenheiro de software sênior (Java) com experiência em backend, microsserviços, integrações, arquitetura, DevOps e Inteligência Artificial aplicada à Engenharia de Software.",
   },
   robots: {
     index: true,
