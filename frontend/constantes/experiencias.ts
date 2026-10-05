@@ -8,6 +8,10 @@ export const experienciasProfissionais: readonly ExperienciaProfissional[] = [
     cargo: "Engenheiro de Software Sênior",
     periodo: "janeiro de 2026 — setembro de 2026",
     destaque: true,
+    logoSrc: "/logos/fcamara.png",
+    logoCorFundo: "#FF6740",
+    siteUrl: "https://fcamara.com/",
+    linkedinUrl: "https://www.linkedin.com/company/grupofcamara/",
     resumo:
       "Atuação na manutenção e evolução de microsserviços Java/Spring Boot em ecossistema de e-commerce B2B de alta complexidade, com foco em observabilidade, infraestrutura em nuvem e qualidade das entregas.",
     atividades: [
