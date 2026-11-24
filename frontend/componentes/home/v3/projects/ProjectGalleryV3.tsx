@@ -233,7 +233,7 @@ export function ProjectGalleryV3({
               className="object-contain"
             />
           </div>
-          <figcaption className="mt-3 shrink-0 text-sm leading-6 text-muted">{imagemAtual.alt}</figcaption>
+          <figcaption className="mx-auto mt-3 max-w-4xl shrink-0 text-center text-sm leading-6 text-muted">{imagemAtual.alt}</figcaption>
         </figure>
         <div className="mt-4 flex shrink-0 items-center justify-between gap-3">
           <button
