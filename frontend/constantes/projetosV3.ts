@@ -66,9 +66,12 @@ export const projetosV3: readonly ProjetoV3[] = [
     ],
     tags: ["Full Stack", "Java", "Quarkus", "React"],
     notaFinal:
-      "Projeto real, em produção. A imagem mostra a página pública do produto; as telas internas contêm dados de usuários e não são exibidas.",
+      "Projeto real, em produção. As imagens mostram a página pública do produto; as telas internas contêm dados de usuários e não são exibidas.",
     imagens: [
-      { src: "/projetos/achei/01.jpg", alt: "Página pública do Achei explicando o fluxo do segmento ao WhatsApp, em quatro passos" },
+      { src: "/projetos/achei/01.png", alt: "Início da página pública do Achei, com a busca de salões de beleza em um bairro devolvendo leads com nota quente e morno" },
+      { src: "/projetos/achei/02.jpg", alt: "Página pública do Achei explicando o fluxo do segmento ao WhatsApp, em quatro passos" },
+      { src: "/projetos/achei/03.png", alt: "Segmentos atendidos pelo Achei, como oficina, salão, clínica, restaurante e escritório de advocacia" },
+      { src: "/projetos/achei/04.png", alt: "Diferenciais do Achei: preço público, Pix, busca, nota e funil no mesmo lugar e planos que crescem com a equipe" },
     ],
   },
   {
@@ -104,9 +107,13 @@ export const projetosV3: readonly ProjetoV3[] = [
     ],
     tags: ["Full Stack", "Java", "Quarkus", "React"],
     notaFinal:
-      "Projeto real, em fase piloto. A imagem é a página de demonstração, com dados fictícios.",
+      "Projeto real, em fase piloto. As imagens são a página de demonstração, com dados fictícios.",
     imagens: [
       { src: "/projetos/aprazar/01.jpg", alt: "Página de demonstração do Aprazar, com o caminho de uma intimação e uma prévia do aplicativo com dados fictícios" },
+      { src: "/projetos/aprazar/02.png", alt: "Tela Novidades do Aprazar, com as intimações novas trazidas do Diário de Justiça Eletrônico, em dados fictícios" },
+      { src: "/projetos/aprazar/03.png", alt: "Tela Agenda do Aprazar, com reunião, prazo de réplica em dias úteis e audiência, em dados fictícios" },
+      { src: "/projetos/aprazar/04.png", alt: "Tela Processo do Aprazar, com a linha do tempo de andamentos de um processo, em dados fictícios" },
+      { src: "/projetos/aprazar/05.png", alt: "Tela Minha agenda do Aprazar, com a sincronização dos prazos no Google Agenda e a conexão com o Outlook, em dados fictícios" },
     ],
   },
   {
@@ -213,9 +220,13 @@ export const projetosV3: readonly ProjetoV3[] = [
     ],
     tags: ["Frontend", "Next.js", "React", "SEO"],
     notaFinal:
-      "Projeto real, no ar. A imagem mostra a página inicial, com dados de demonstração.",
+      "Projeto real, no ar. As imagens mostram páginas do site publicado.",
     imagens: [
       { src: "/projetos/site-wepone/01.jpg", alt: "Página inicial do site da WepOne, com a chamada principal e uma demonstração visual do sistema" },
+      { src: "/projetos/site-wepone/02.png", alt: "Seção do site da WepOne que organiza as soluções em atendimento e vendas, gestão do negócio e sistema sob medida" },
+      { src: "/projetos/site-wepone/03.png", alt: "Seção do site da WepOne com as soluções por segmento, como salões, comércio e serviços em campo" },
+      { src: "/projetos/site-wepone/04.png", alt: "Página de sistemas sob medida do site da WepOne, com o projeto organizado em quatro etapas" },
+      { src: "/projetos/site-wepone/05.png", alt: "Página da solução de relacionamento pelo WhatsApp do site da WepOne" },
     ],
   },
 ];
