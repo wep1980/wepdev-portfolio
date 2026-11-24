@@ -46,7 +46,7 @@ export function ProjectDetailPage({ projeto }: PropriedadesProjectDetailPage) {
               imagens={projeto.imagens}
               ampla
               mostrarAmpliar
-              rotuloImagem={projeto.status === "Projeto real" ? "Ambiente de demonstração" : "Interface conceitual"}
+              rotuloImagem="Tela do projeto"
             />
           </div>
 
