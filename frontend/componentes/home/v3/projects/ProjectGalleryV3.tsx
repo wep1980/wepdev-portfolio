@@ -122,7 +122,7 @@ export function ProjectGalleryV3({
             className="h-full w-full object-contain transition-opacity duration-200 motion-reduce:transition-none"
           />
           <span className="pointer-events-none absolute bottom-3 left-3 border border-white/20 bg-black/60 px-2 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-white/80">
-            {rotuloImagem}
+            {imagemAtual.legenda ?? rotuloImagem}
           </span>
         </button>
         {mostrarAmpliar ? (
